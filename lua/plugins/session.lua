@@ -1,6 +1,9 @@
 return {
   "Shatur/neovim-session-manager",
   denpendencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    { "<leader>sl", "<cmd>SessionManager load_session<cr>", desc = "SessionManager" },
+  },
   config = function()
     local Path = require("plenary.path")
     require("session_manager").setup({
