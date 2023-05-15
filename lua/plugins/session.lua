@@ -4,7 +4,7 @@ return {
   keys = {
     { "<leader>sl", "<cmd>SessionManager load_session<cr>", desc = "SessionManager" },
   },
-  config = function()
+  init = function()
     local Path = require("plenary.path")
     require("session_manager").setup({
       sessions_dir = Path:new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
