@@ -153,7 +153,7 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- formater
-map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format()<cr>")
+map({ "n", "v" }, "<leader>fm", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 -- select all
 map("n", "<c-a>", "ggVG")
