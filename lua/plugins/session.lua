@@ -3,8 +3,9 @@ return {
   denpendencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>sl", "<cmd>SessionManager load_session<cr>", desc = "SessionManager" },
+    -- { "<leader>sd", "<cmd>SessionManager delete_session<cr>", desc = "SessionManager" },
   },
-  init = function()
+  config = function()
     local Path = require("plenary.path")
     require("session_manager").setup({
       sessions_dir = Path:new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
