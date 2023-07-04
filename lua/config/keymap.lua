@@ -43,3 +43,6 @@ map("n","<leader>gg", "<cmd>LazyGit<cr>")
 
 -- close buffer
 map("n","<leader>q", "<cmd>bd<cr>")
+
+-- zen-mode
+map("n", "<leader>z","<cmd>ZenMode<cr>")
