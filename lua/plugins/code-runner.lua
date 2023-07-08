@@ -10,6 +10,7 @@ return {
         perl = "perl $fileName",
         typescript = "deno run",
         rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+        cpp = "cd $dir && g++ *.cpp -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
       },
     })
     vim.keymap.set("n", "<leader>r", "<cmd>RunCode<cr>")
