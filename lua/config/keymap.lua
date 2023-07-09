@@ -55,3 +55,5 @@ map('',"<leader>o","<cmd>SymbolsOutline<cr>")
 
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
+map("n","<leader>i","<cmd>lua ToggleBoolean()<cr>")
+
