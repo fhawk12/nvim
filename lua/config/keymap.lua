@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 map({ "n", "v" }, "<leader>fm", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 -- select all
-map("n", "<c-a>", "ggVG")
+map({"n"}, "<c-a>", "ggVG")
 
 -- nvim-tree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
@@ -46,3 +46,12 @@ map("n","<leader>q", "<cmd>bd<cr>")
 
 -- zen-mode
 map("n", "<leader>z","<cmd>ZenMode<cr>")
+
+-- rename
+map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>")
+
+-- outline
+map('',"<leader>o","<cmd>SymbolsOutline<cr>")
+
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+

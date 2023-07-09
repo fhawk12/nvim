@@ -12,5 +12,7 @@ return {
     }
     require("lspconfig").lua_ls.setup {}
     require("lspconfig").clangd.setup {}
+    require("lspconfig").marksman.setup {}
+    require("lspconfig").prosemd_lsp.setup {}
   end
 }

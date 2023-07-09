@@ -13,10 +13,10 @@ return {
         cpp = "cd $dir && g++ *.cpp -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
       },
     })
-    vim.keymap.set("n", "<leader>r", "<cmd>RunCode<cr>")
-    vim.keymap.set("n", "<leader>rf", "<cmd>RunFile<cr>")
-    vim.keymap.set("n", "<leader>rft", "<cmd>RunFile tab<cr>")
-    vim.keymap.set("n", "<leader>rp", "<cmd>RunProject<cr>")
+    vim.keymap.set("n", "<leader>rr", "<cmd>RunCode<cr>")
+    -- vim.keymap.set("n", "<leader>rf", "<cmd>RunFile<cr>")
+    -- vim.keymap.set("n", "<leader>rft", "<cmd>RunFile tab<cr>")
+    -- vim.keymap.set("n", "<leader>rp", "<cmd>RunProject<cr>")
     -- vim.keymap.set('n', '<leader>rc', '<cmd>RunClose<cr>')
     -- vim.keymap.set('n', '<leader>crf', '<cmd>CRFiletype<cr>')
     -- vim.keymap.set('n', '<leader>crp', '<cmd>CRProjects<cr>')
