@@ -1,0 +1,52 @@
+snippet fori
+	for (int i = 0; i < n; i++) {
+		${0}
+	}
+	
+snippet forj
+	for (int j = 0; j < m; j++) {
+		${0}
+	}
+
+snippet cf
+	#include <bits/stdc++.h>
+
+	using namespace std;
+
+	inline void print(const vector<int> &a) {
+		int n = a.size();
+		for (int i = 0; i < n; i++) {
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+
+	typedef long long ll;
+	typedef pair<long, long> pll;
+	typedef pair<int, int> pii;
+
+	#define endl '\n';
+	#define Debug(x) cout << #x << ':' << x << endl;
+	#define pyes() cout << "YES" << endl;
+	#define pno() cout << "NO" << endl;
+
+	void solve() {
+		${0}
+	}
+
+	int main() {
+		ios::sync_with_stdio(false);
+		cin.tie(nullptr);
+
+		int t;
+		cin >> t;
+		while (t--) {
+			solve();
+		}
+
+		return 0;
+	}
+
+snippet cm "Comment Section"
+	/*  ${0}  */
+

@@ -1,0 +1,26 @@
+{
+  "neodev": {
+    "library": {
+      "enabled": true,
+      "plugins": [
+        "nvim-lspconfig",
+        "lsp",
+        "plenary.nvim",
+        "nvim-treesitter",
+        "telescope.nvim",
+      ]
+    }
+  },
+  "neoconf": {
+    "plugins": {
+      "lua_ls": {
+        "enabled": true
+      },
+    }
+  },
+  "lspconfig": {
+    "lua_ls": {
+      "Lua.completion.callSnippet": "Replace",
+    },
+  }
+}
