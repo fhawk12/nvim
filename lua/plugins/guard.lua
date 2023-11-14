@@ -6,7 +6,7 @@ return {
 	dependencies = {
 		"nvimdev/guard-collection",
 	},
-	lazy = "VeryLazy",
+	event = "LspAttach",
 	config = function()
 		local ft = require("guard.filetype")
 		ft("c"):fmt("clang-format")

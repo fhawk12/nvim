@@ -2,8 +2,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	"nvim-treesitter/playground",
-	lazy = false,
-	priority = 1000,
 	init = function()
 		require("nvim-treesitter.configs").setup({
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)

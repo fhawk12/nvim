@@ -7,7 +7,6 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lua",
-		"kdheepak/cmp-latex-symbols",
 		{
 			"saadparwaiz1/cmp_luasnip",
 			dependencies = {
@@ -78,7 +77,6 @@ return {
 				{ name = "nvim_lua", priority = 90 },
 				{ name = "luasnip", option = { show_autosnippets = true }, priority = 80 },
 				{ name = "path", priority = 70 },
-				{ name = "latex_symbols", priority = 50 },
 				{ name = "buffer", priority = 10 },
 			}),
 

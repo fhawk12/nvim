@@ -1,8 +1,6 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-  lazy = false,
-  priority = 999,
 	init = function()
 		require("rose-pine").setup({
 			--- @usage 'auto'|'main'|'moon'|'dawn'

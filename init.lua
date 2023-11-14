@@ -18,3 +18,5 @@ require("config.keymap")
 require("config.autocmds")
 require("config.ui")
 require("config.function")
+
+-- vim.opt.runtimepath:append("$HOME/Documents/project/nvim/wiki.nvim/")
