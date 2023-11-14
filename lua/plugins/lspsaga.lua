@@ -1,5 +1,9 @@
 return {
 	"nvimdev/lspsaga.nvim",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter", -- optional
+		"nvim-tree/nvim-web-devicons", -- optional
+	},
 	keys = {
 		{ "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "lspsaga rename" },
 		{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "hove doc" },
