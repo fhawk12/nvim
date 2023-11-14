@@ -2,7 +2,7 @@
   Neovim Config
 </h1>
 
-![preview](./preview.png)
+![view](./view.png)
 
 ---
 
