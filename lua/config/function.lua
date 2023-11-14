@@ -127,4 +127,4 @@ local function Run()
   end
 end
 
-vim.keymap.set('n', '<F5>', Run, {})
+vim.keymap.set('n', '<F4>', Run, {})
