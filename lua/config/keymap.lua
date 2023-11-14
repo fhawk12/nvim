@@ -63,6 +63,8 @@ map("n", "<leader>h", "<cmd>lua vim.diagnostic.open_float()<cr>",  { desc = "Ope
 map("i", "<c-b>", "<left>")
 map("i", "<c-f>", "<right>")
 map("i", "<c-a>", "<esc>^i")
+map("i", "<c-k>", "<c-o>o")
+
 --@see https://vim.fandom.com/wiki/Moving_lines_up_or_down
 map("i", "<a-j>", "<esc>:m .+1<cr>==gi")
 map("i", "<a-k>", "<esc>:m .-2<cr>==gi")
