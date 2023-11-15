@@ -13,6 +13,7 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 map("i", "<c-n>", "<Nop>")
 map("i", "<c-p>", "<Nop>")
 map("i", "<c-y>", "<Nop>")
+map({ "n", "v" }, " ", "<Nop>")
 
 -- cursor movement
 map({ "n", "v" }, "J", "5j")
