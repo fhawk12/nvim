@@ -1,5 +1,6 @@
 return {
 	"vidocqh/auto-indent.nvim",
+  event = "InsertEnter",
 	config = function()
 		require("auto-indent").setup({
 			lightmode = true, -- Lightmode assumes tabstop and indentexpr not change within buffer's lifetime

@@ -20,6 +20,10 @@ map({ "n", "v" }, "J", "5j")
 map({ "n", "v" }, "K", "5k")
 map({ "n", "v" }, "W", "5w")
 
+-- move buffer
+map("n", "L", "<cmd>bn<cr>")
+map("n", "H", "<cmd>bp<cr>")
+
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
