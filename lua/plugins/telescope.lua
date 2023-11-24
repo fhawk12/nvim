@@ -1,8 +1,11 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.4",
-	-- or                              , branch = '0.1.x',
-	dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
+	branch = "0.1.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"BurntSushi/ripgrep",
+		"nvim-telescope/telescope-fzy-native.nvim",
+	},
 	config = function()
 		local function map(mode, lhs, rhs, opts)
 			vim.keymap.set(mode, lhs, rhs, opts)
@@ -32,37 +35,19 @@ return {
 					vertical = { mirror = false },
 				},
 				sorting_strategy = "ascending",
-				mappings = {
-					i = {
-						-- map actions.which_key to <C-h> (default: <C-/>)
-						-- actions.which_key shows the mappings for your picker,
-						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
-						["<c-t>"] = trouble.open_with_trouble,
-						["<c-h>"] = "which_key",
-						["<C-k>"] = require("telescope.actions").move_selection_previous,
-						["<C-j>"] = require("telescope.actions").move_selection_next,
-					},
-					n = {
-						["<c-n>"] = trouble.open_with_trouble,
+				file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			},
+			extensions = {
+				extensions = {
+					fzy_native = {
+						override_generic_sorter = false,
+						override_file_sorter = true,
 					},
 				},
 			},
-			pickers = {
-				-- Default configuration for builtin pickers goes here:
-				-- picker_name = {
-				--   picker_config_key = value,
-				--   ...
-				-- }
-				-- Now the picker_config_key will be applied every time you call this
-				-- builtin picker
-			},
-			extensions = {
-				-- Your extension configuration goes here:
-				-- extension_name = {
-				--   extension_config_key = value,
-				-- }
-				-- please take a look at the readme of the extension you want to configure
-			},
 		})
+		require("telescope").load_extension("fzy_native")
 	end,
 }
