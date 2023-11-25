@@ -58,8 +58,5 @@ return {
 			case_insensitive_regex = false,
 		})
 
-		vim.api.nvim_command("highlight IlluminatedWordText guibg=#302f40 gui='None'")
-		vim.api.nvim_command("highlight IlluminatedWordRead guibg=#302f40 gui='None'")
-		vim.api.nvim_command("highlight IlluminatedWordWrite guibg=#302F40 gui='None'")
 	end,
 }
