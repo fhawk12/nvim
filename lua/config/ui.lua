@@ -25,5 +25,5 @@ vim.diagnostic.config({
 		winblend = 10, -- 控制悬浮窗口的透明度
 		border = float_border,
 	},
-	virtual_text = false,
+	virtual_text = true,
 })
