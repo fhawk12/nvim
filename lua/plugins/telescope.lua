@@ -13,6 +13,7 @@ return {
 
 		local builtin = require("telescope.builtin")
 		map("n", "<leader>ff", builtin.find_files, { desc = "find files" })
+		map("n", "<leader>fo", builtin.oldfiles, { desc = "find files" })
 		map("n", "<leader>fa", builtin.live_grep, { desc = "live grep" })
 		map("n", "<leader>b", builtin.buffers, { desc = "find buffer" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "find help doc" })
