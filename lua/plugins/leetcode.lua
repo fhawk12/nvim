@@ -13,6 +13,11 @@ return {
 		"rcarriga/nvim-notify",
 		"nvim-tree/nvim-web-devicons",
 	},
+	keys = {
+		{ "<F1>", "<cmd>Leet info<cr>" },
+		{ "<F2>", "<cmd>Leet run<cr>" },
+		{ "<F3>", "<cmd>Leet submit<cr>" },
+	},
 	lazy = leet_arg ~= vim.fn.argv()[1],
 	opts = {
 
