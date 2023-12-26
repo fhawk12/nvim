@@ -50,8 +50,8 @@ return {
 				-- Blend colours against the "base" background
 				CursorLine = { bg = "foam", blend = 5 },
 				StatusLine = { fg = "love", bg = "love", blend = 10 },
-				String = { fg = "#9ece6a" },
-				Character = { fg = "#9ece6a" },
+				-- String = { fg = "#9ece6a" },
+				-- Character = { fg = "#9ece6a" },
 
 				-- By default each group adds to the existing config.
 				-- If you only want to set what is written in this config exactly,
