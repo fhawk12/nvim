@@ -12,8 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("config.options")
-require("lazy").setup("plugins")
 require("config.keymap")
-require("config.autocmds")
-require("config.ui")
+require("lazy").setup("plugins")
 require("config.function")
+require("config.autocmd")
+
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })

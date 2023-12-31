@@ -3,6 +3,9 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",
+		{
+			"folke/neodev.nvim",
+		},
 	},
 	config = function()
 		require("mason").setup()
@@ -10,11 +13,10 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"clangd",
-				"pyright",
 				"gopls",
 				"marksman",
-				"eslint",
 				"tsserver",
+				"eslint",
 				"rust_analyzer",
 			},
 		})
@@ -23,14 +25,13 @@ return {
 		-- Setup language servers.
 		lspconfig.gopls.setup({})
 		lspconfig.pyright.setup({})
-		lspconfig.jdtls.setup({})
 		lspconfig.marksman.setup({})
 		lspconfig.eslint.setup({})
-		lspconfig.cssls.setup({})
 		lspconfig.tsserver.setup({})
 		lspconfig.cmake.setup({})
-		lspconfig.clangd.setup({ capabilities = { offsetEncoding = "utf-8" } })
+		--		lspconfig.clangd.setup({ capabilities = { offsetEncoding = "utf-8" } })
 		lspconfig.rust_analyzer.setup({})
+		lspconfig.clangd.setup({})
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {

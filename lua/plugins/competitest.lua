@@ -4,8 +4,7 @@ return {
 	keys = {
 		{ ";r", "<cmd>CompetiTest run<cr>", desc = "Competitest run" },
 		{ ";a", "<cmd>CompetiTest receive testcases<cr>", desc = "Receive testcases" },
-		{ ";cd", "<cmd>CompetiTest delete_testcase testcases<cr> <cmd>lua Delete_executable_files()<cr>", desc = "Delete testcases" },
-		{ ";c", "<cmd>CompetiTest receive contest<cr>", desc = "Receive contest" },
+		{ ";td", "<cmd>CompetiTest delete_testcase testcases<cr> <cmd>lua Delete_executable_files()<cr>", desc = "Delete testcases" },
 	},
 	config = function()
 		require("competitest").setup()

@@ -1,8 +1,7 @@
 return {
 	"rose-pine/neovim",
-	name = "rose-pine",
-	enabled = true,
-	init = function()
+	opts = {},
+	config = function()
 		require("rose-pine").setup({
 			--- @usage 'auto'|'main'|'moon'|'dawn'
 			variant = "auto",
@@ -12,7 +11,7 @@ return {
 			dim_nc_background = false,
 			disable_background = false,
 			disable_float_background = false,
-			disable_italics = true,
+			disable_italics = false,
 
 			--- @usage string hex value or named color from rosepinetheme.com/palette
 			groups = {
@@ -48,23 +47,17 @@ return {
 				ColorColumn = { bg = "rose" },
 
 				-- Blend colours against the "base" background
-				CursorLine = { bg = "foam", blend = 5 },
+				CursorLine = { bg = "foam", blend = 10 },
 				StatusLine = { fg = "love", bg = "love", blend = 10 },
-				-- String = { fg = "#9ece6a" },
-				-- Character = { fg = "#9ece6a" },
 
 				-- By default each group adds to the existing config.
 				-- If you only want to set what is written in this config exactly,
 				-- you can set the inherit option:
-				-- Search = { bg = "gold", inherit = false },
+				-- Search = { bg = 'gold', inherit = false },
 			},
 		})
 
 		-- Set colorscheme after options
 		vim.cmd("colorscheme rose-pine")
-
-		vim.api.nvim_command("highlight IlluminatedWordText guibg=#302f40 gui='None'")
-		vim.api.nvim_command("highlight IlluminatedWordRead guibg=#302f40 gui='None'")
-		vim.api.nvim_command("highlight IlluminatedWordWrite guibg=#302F40 gui='None'")
 	end,
 }
