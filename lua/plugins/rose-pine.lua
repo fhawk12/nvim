@@ -1,6 +1,5 @@
 return {
 	"rose-pine/neovim",
-	opts = {},
 	config = function()
 		require("rose-pine").setup({
 			--- @usage 'auto'|'main'|'moon'|'dawn'
@@ -11,7 +10,7 @@ return {
 			dim_nc_background = false,
 			disable_background = false,
 			disable_float_background = false,
-			disable_italics = false,
+			disable_italics = true,
 
 			--- @usage string hex value or named color from rosepinetheme.com/palette
 			groups = {

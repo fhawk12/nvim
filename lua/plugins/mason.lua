@@ -21,25 +21,28 @@ return {
 			},
 		})
 
-		local lspconfig = require("lspconfig")
-		-- Setup language servers.
-		lspconfig.gopls.setup({})
-		lspconfig.pyright.setup({})
-		lspconfig.marksman.setup({})
-		lspconfig.eslint.setup({})
-		lspconfig.tsserver.setup({})
-		lspconfig.cmake.setup({})
-		--		lspconfig.clangd.setup({ capabilities = { offsetEncoding = "utf-8" } })
-		lspconfig.rust_analyzer.setup({})
-		lspconfig.clangd.setup({})
-		lspconfig.lua_ls.setup({
-			settings = {
-				Lua = {
-					workspace = {
-						checkThirdParty = false,
+		local servers = {
+			clangd = {},
+			pyright = {},
+			eslint = {},
+			tsserver = {},
+			cmake = {},
+			rust_analyzer = {},
+			lua_ls = {
+				settings = {
+					Lua = {
+						workspace = {
+							checkThirdParty = false,
+						},
 					},
 				},
 			},
-		})
+		}
+
+		require("neodev").setup()
+
+		for server, config in pairs(servers) do
+			require("lspconfig")[server].setup(config)
+		end
 	end,
 }
