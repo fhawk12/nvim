@@ -22,6 +22,8 @@ map({ "n", "v" }, "gl", "$", { desc = "Go to line end " })
 map({ "n", "v" }, "gh", "0", { desc = "Go to line start " })
 map({ "n", "v" }, "gg", "gg", { desc = "Go to start line start " })
 map({ "n", "v" }, "ge", "G", { desc = "Go to last line start " })
+map({ "n", "v" }, "J", "5j", { noremap = true })
+map({ "n", "v" }, "K", "5k", { noremap = true })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
@@ -47,6 +49,8 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>") -- save file
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Cancel highlight" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
 map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle boolean" })
+map("n", "<F4>", "<cmd>lua RunCode()<cr>", {desc = "run code"})
+map("n", "U", "J")
 
 map("i", "<c-b>", "<left>")
 map("i", "<c-f>", "<right>")

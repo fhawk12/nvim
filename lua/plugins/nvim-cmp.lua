@@ -17,6 +17,11 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+
+		-- Add parentheses after selecting function or method item
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 		require("luasnip.loaders.from_vscode").lazy_load()
 		require("luasnip.loaders.from_snipmate").lazy_load({ path = { "~/.config/nvim/snippets" } })
 
@@ -71,7 +76,7 @@ return {
 				{ name = "path" },
 			}),
 			formatting = {
-        expandable_indicator = true,
+				expandable_indicator = true,
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)

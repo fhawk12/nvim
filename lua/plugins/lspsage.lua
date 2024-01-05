@@ -9,6 +9,7 @@ return {
 		{ "ca", "<cmd>Lspsaga code_action<cr>" },
 		{ ";d", "<cmd>Lspsaga peek_definition<cr>" },
 		{ "gd", "<cmd>Lspsaga goto_definition<cr>" },
+		{ "<leader>fi", "<cmd>Lspsaga finder<cr>" },
 		{ "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>" },
 		{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>" },
 		{ "<C-\\>", "<cmd>Lspsaga term_toggle<cr>", mode = { "n", "t" } },

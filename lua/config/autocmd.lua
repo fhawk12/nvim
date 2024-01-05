@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- go to last loc when opening a buffer
+-- go to last location when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function(event)
     local exclude = { "gitcommit" }
