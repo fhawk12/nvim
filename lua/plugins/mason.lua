@@ -18,6 +18,8 @@ return {
 				"tsserver",
 				"eslint",
 				"rust_analyzer",
+        "cmake",
+        "bashls"
 			},
 		})
 

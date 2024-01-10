@@ -4,11 +4,12 @@ end
 
 vim.g.mapleader = " "
 
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 map("i", "<c-n>", "<Nop>")
 map("i", "<c-p>", "<Nop>")
 map("i", "<c-y>", "<Nop>")
+map({ "n", "i" }, "<c-space>", "<Nop>")
 map({ "n", "v" }, " ", "<Nop>")
 
 -- better up/down
@@ -49,7 +50,7 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>") -- save file
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Cancel highlight" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
 map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle boolean" })
-map("n", "<F4>", "<cmd>lua RunCode()<cr>", {desc = "run code"})
+map("n", "<F4>", "<cmd>lua RunCode()<cr>", { desc = "run code" })
 map("n", "U", "J")
 
 map("i", "<c-b>", "<left>")

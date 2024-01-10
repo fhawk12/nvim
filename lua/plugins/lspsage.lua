@@ -18,7 +18,11 @@ return {
 		{ "<leader>rn", "<cmd>Lspsaga rename<cr>" },
 	},
 	config = function()
-		require("lspsaga").setup({})
+		require("lspsaga").setup({
+			outline = {
+				layout = "float",
+			},
+		})
 		vim.api.nvim_set_hl(0, "WinBar", { fg = "None", bg = "None" })
 	end,
 }
