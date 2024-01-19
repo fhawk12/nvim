@@ -36,9 +36,9 @@ return {
 		end
 
 		local builtin = require("telescope.builtin")
-		map("n", "<leader>ff", builtin.find_files, { desc = "find files" })
-		map("n", "<leader>/", builtin.live_grep, { desc = "live grep" })
-		map("n", "<leader>b", builtin.buffers, { desc = "find buffer" })
-		map("n", "<leader>fh", builtin.help_tags, { desc = "find help doc" })
+		map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+		map("n", "<leader>/", builtin.live_grep, { desc = "Live grep" })
+		map("n", "<leader>b", builtin.buffers, { desc = "Find buffer" })
+		map("n", "<leader>fh", builtin.help_tags, { desc = "Find help doc" })
 	end,
 }

@@ -29,7 +29,9 @@ return {
 			eslint = {},
 			tsserver = {},
 			cmake = {},
+      marksman = {},
 			rust_analyzer = {},
+      bashls = {},
 			lua_ls = {
 				settings = {
 					Lua = {

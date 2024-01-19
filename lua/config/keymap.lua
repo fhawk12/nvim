@@ -49,8 +49,8 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>") -- save file
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Cancel highlight" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
-map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle boolean" })
-map("n", "<F4>", "<cmd>lua RunCode()<cr>", { desc = "run code" })
+map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle Boolean" })
+map("n", "<F4>", "<cmd>lua RunCode()<cr>", { desc = "Run Code" })
 map("n", "U", "J")
 
 map("i", "<c-b>", "<left>")

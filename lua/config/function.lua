@@ -1,18 +1,10 @@
 ------ toggle bool ------
 function ToggleBoolean()
 	local word = vim.fn.expand("<cword>")
-	if Is_bool(word) then
-		local res = not To_bool(word)
+	if word == "true" or word == "false" then
+		local res = not (word == "true")
 		vim.cmd("normal! ciw" .. tostring(res))
 	end
-end
-
-function Is_bool(str)
-	return str == "true" or str == "false"
-end
-
-function To_bool(str)
-	return str == "true"
 end
 
 ------ jump stack trace -------
@@ -32,16 +24,17 @@ end
 function Close_all_buffers_except_current()
 	local current_bufnr = vim.fn.bufnr("%")
 	local buflist = vim.fn.getbufinfo({ buflisted = 1 })
-
+  if buflist == nil then
+    return
+  end
 	for _, buf in ipairs(buflist) do
 		if buf.bufnr ~= current_bufnr then
-			vim.cmd("bd" .. buf.bufnr)
+			vim.cmd("bd " .. buf.bufnr)
 		end
 	end
 end
 
-vim.cmd("command! -nargs=0 Bda lua vim.fn.Close_all_buffers_except_current()")
-vim.fn["Close_all_buffers_except_current"] = Close_all_buffers_except_current
+vim.cmd("command! Bda lua Close_all_buffers_except_current()")
 
 ------ toggle current word case ------
 function Toggle_current_word_case()

@@ -27,7 +27,9 @@ function RunCode()
 		vim.cmd(string.format('term lua "%s"', filename))
 	elseif ft == "sh" then
 		vim.cmd(string.format('term bash "%s"', filename))
-	else
+	elseif ft == "javascript" then
+    vim.cmd(string.format('term node "%s"', filename))
+  else
 		print(string.format("please config run code for %s", ft))
 	end
 end

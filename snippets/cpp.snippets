@@ -1,17 +1,11 @@
-snippet fori
-	for (int i = 0; i < n; i++) {
-		${0}
-	}
-	
-snippet forj
-	for (int j = 0; j < m; j++) {
-		${0}
-	}
-
 snippet cf
 	#include <bits/stdc++.h>
 
 	using namespace std;
+
+	typedef long long ll;
+	typedef pair<long, long> pll;
+	typedef pair<int, int> pii;
 
 	inline void print(const vector<int> &a) {
 		int n = a.size();
@@ -21,14 +15,12 @@ snippet cf
 		cout << endl;
 	}
 
-	typedef long long ll;
-	typedef pair<long, long> pll;
-	typedef pair<int, int> pii;
-
 	#define endl '\n'
-	#define Debug(x) cout << #x << ':' << x << endl;
-	#define pyes() cout << "YES" << endl;
-	#define pno() cout << "NO" << endl;
+	#define Debug(x) cout << #x << ':' << x << endl
+	#define all(v) v.begin(), v.end()
+	#define rall(v) v.rbegin(), v.rend()
+	#define yes() cout << "YES\n"
+	#define no() cout << "NO\n"
 
 	void solve() {
 		${0}
@@ -49,9 +41,4 @@ snippet cf
 
 snippet cm "Comment Section"
 	/*  ${0}  */
-
-snippet bits "Add <bits/stdc++.h>"
-	#include <bits/stdc++.h>
-	using namespace std;
-	${0}
 
