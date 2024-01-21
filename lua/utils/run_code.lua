@@ -29,6 +29,8 @@ function RunCode()
 		vim.cmd(string.format('term bash "%s"', filename))
 	elseif ft == "javascript" then
     vim.cmd(string.format('term node "%s"', filename))
+  elseif ft == "html" then
+    vim.cmd(string.format('term firefox "%s"', filename))
   else
 		print(string.format("please config run code for %s", ft))
 	end

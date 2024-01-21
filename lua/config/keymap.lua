@@ -46,11 +46,12 @@ map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>") -- save file
+map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Cancel highlight" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
 map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle Boolean" })
 map("n", "<F4>", "<cmd>lua RunCode()<cr>", { desc = "Run Code" })
+map("n", ";f", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show diagnostic" })
 map("n", "U", "J")
 
 map("i", "<c-b>", "<left>")

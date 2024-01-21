@@ -11,6 +11,7 @@ return {
 			-- Use a sub-list to run only the first available formatter
 			javascript = { { "prettierd", "prettier" } },
 			markdown = { "prettier" },
+			json = { "prettier" },
 
 			c = { "clang_format" },
 			cpp = { "clang_format" },
