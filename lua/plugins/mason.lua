@@ -18,20 +18,20 @@ return {
 				"tsserver",
 				"eslint",
 				"rust_analyzer",
-        "cmake",
-        "bashls"
+				"cmake",
+				"bashls",
 			},
 		})
 
 		local servers = {
 			clangd = {},
-			pyright = {},
+			gopls = {},
 			eslint = {},
 			tsserver = {},
 			cmake = {},
-      marksman = {},
+			marksman = {},
 			rust_analyzer = {},
-      bashls = {},
+			bashls = {},
 			lua_ls = {
 				settings = {
 					Lua = {

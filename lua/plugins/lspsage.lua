@@ -22,6 +22,11 @@ return {
 			outline = {
 				layout = "float",
 			},
+      lightbulb = {
+        enable = false,
+        virtual_text = true,
+        sign = true,
+      }
 		})
 		vim.api.nvim_set_hl(0, "WinBar", { fg = "None", bg = "None" })
 	end,

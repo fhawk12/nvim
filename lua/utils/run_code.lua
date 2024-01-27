@@ -2,12 +2,13 @@ local win = require("utils.float_win")
 
 local function create_window()
 	local opts = {
-		title = "Code running",
+		title = " Code running ",
 		width = 0.3,
 		height = 0.8,
 		pos = "cr",
 	}
-	win.create_window(opts)
+	vim.g.run_code = true
+	vim.g.run_code_float_win = win.create_window(opts)
 end
 
 function RunCode()
@@ -16,7 +17,11 @@ function RunCode()
 	local running_file = vim.fn.expand("%:t:r")
 	local ft = vim.bo.filetype
 
+	if vim.g.run_code and vim.api.nvim_win_is_valid(vim.g.run_code_float_win) then
+		vim.api.nvim_win_close(vim.g.run_code_float_win, true)
+	end
 	create_window()
+
 	if ft == "c" then
 		vim.cmd(string.format('term gcc "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
 	elseif ft == "cpp" then
@@ -28,10 +33,10 @@ function RunCode()
 	elseif ft == "sh" then
 		vim.cmd(string.format('term bash "%s"', filename))
 	elseif ft == "javascript" then
-    vim.cmd(string.format('term node "%s"', filename))
-  elseif ft == "html" then
-    vim.cmd(string.format('term firefox "%s"', filename))
-  else
+		vim.cmd(string.format('term node "%s"', filename))
+	elseif ft == "html" then
+		vim.cmd(string.format('term firefox "%s"', filename))
+	else
 		print(string.format("please config run code for %s", ft))
 	end
 end

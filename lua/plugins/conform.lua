@@ -12,6 +12,7 @@ return {
 			javascript = { { "prettierd", "prettier" } },
 			markdown = { "prettier" },
 			json = { "prettier" },
+			sh = { "shfmt" },
 
 			c = { "clang_format" },
 			cpp = { "clang_format" },

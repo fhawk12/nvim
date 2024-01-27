@@ -21,14 +21,13 @@ return {
 				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 			},
 			extensions = {
-				extensions = {
-					fzy_native = {
-						override_generic_sorter = false,
-						override_file_sorter = true,
-					},
+				fzy_native = {
+					override_generic_sorter = false,
+					override_file_sorter = true,
 				},
 			},
 		})
+
 		require("telescope").load_extension("fzy_native")
 
 		local function map(mode, lhs, rhs, opts)

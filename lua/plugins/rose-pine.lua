@@ -1,6 +1,7 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
+	lazy = false,
 	config = function()
 		require("rose-pine").setup({
 			variant = "auto", -- auto, main, moon, or dawn
@@ -50,6 +51,7 @@ return {
 			highlight_groups = {
 				Comment = { italic = true },
 				ColorColumn = { bg = "#26233a" },
+				Keyword = { fg = "#6fa8dc" },
 				-- VertSplit = { fg = "muted", bg = "muted" },
 			},
 
@@ -66,6 +68,6 @@ return {
 			end,
 		})
 
-		vim.cmd("colorscheme rose-pine")
+		-- vim.cmd("colorscheme rose-pine")
 	end,
 }

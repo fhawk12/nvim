@@ -25,5 +25,4 @@ opt.wrap = false               -- Disable line wrap
 opt.list = false               -- Show some invisible characters (tabs...
 opt.laststatus = 3             -- the always show one statusline
 opt.autoread = true            -- when file was modified, automatically read again
-opt.textwidth = 120
-opt.colorcolumn = "+1"
+opt.conceallevel = 2

@@ -20,11 +20,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	end,
 })
 
--- Wrap and check for spell in text filetypes
+-- Wrap and conceal signcolumn in markdown file
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit", "markdown" },
 	callback = function()
 		vim.opt_local.wrap = true
+    vim.opt.signcolumn = "no"
 	end,
 })
 

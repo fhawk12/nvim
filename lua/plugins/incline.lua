@@ -21,6 +21,7 @@ return {
 
 		require("incline").setup({
 			debounce_threshold = { falling = 500, rising = 250 },
+      hide = { only_win = true },
 			render = function(props)
 				local bufname = vim.api.nvim_buf_get_name(props.buf)
 				local filename = vim.fn.fnamemodify(bufname, ":t")
