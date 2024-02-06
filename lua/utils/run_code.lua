@@ -23,9 +23,9 @@ function RunCode()
 	create_window()
 
 	if ft == "c" then
-		vim.cmd(string.format('term gcc "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
+		vim.cmd(string.format('term gcc -g "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
 	elseif ft == "cpp" then
-		vim.cmd(string.format('term g++ "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
+		vim.cmd(string.format('term g++ -g "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
 	elseif ft == "python" then
 		vim.cmd(string.format('term python3 "%s"', filename))
 	elseif ft == "lua" then

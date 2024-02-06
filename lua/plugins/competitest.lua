@@ -13,7 +13,7 @@ return {
 			replace_received_testcases = true,
 			testcases_use_single_file = true,
 			view_output_diff = true,
-			template_file = { "/home/fhawk/.config/nvim/template/cf.cpp" },
+			template_file = "~/.config/nvim/template/cf.cpp",
 		})
 	end,
 }

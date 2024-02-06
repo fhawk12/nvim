@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 local opt = vim.opt
 
+opt.autowrite = true
 opt.mouse = "a"                -- Enable mouse mode
 opt.number = true              -- Print line number
 opt.relativenumber = true      -- Relative line numbers
@@ -25,4 +26,4 @@ opt.wrap = false               -- Disable line wrap
 opt.list = false               -- Show some invisible characters (tabs...
 opt.laststatus = 3             -- the always show one statusline
 opt.autoread = true            -- when file was modified, automatically read again
-opt.conceallevel = 2
+opt.conceallevel = 1

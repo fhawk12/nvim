@@ -1,5 +1,6 @@
 return {
 	"nvimdev/dyninput.nvim",
+  enabled = false,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
@@ -11,6 +12,7 @@ return {
 			c = {
 				["-"] = {
 					{ "->", ms.c_struct_pointer },
+          { "->", ms.is_pointer },
 					{ "_", ms.snake_case },
 				},
 			},

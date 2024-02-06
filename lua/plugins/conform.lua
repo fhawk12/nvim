@@ -9,7 +9,11 @@ return {
 			-- Conform will run multiple formatters sequentially
 			python = { "isort", "black" },
 			-- Use a sub-list to run only the first available formatter
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettierd", "prettier" },
+			javascriptreact = { "prettierd", "prettier" },
+			typescript = { "prettierd", "prettier" },
+			typescriptreact = { "prettierd", "prettier" },
+			html = { "prettierd", "prettier" },
 			markdown = { "prettier" },
 			json = { "prettier" },
 			sh = { "shfmt" },
