@@ -10,7 +10,7 @@ return {
 			extend_background_behind_borders = false,
 
 			styles = {
-				bold = true,
+				bold = false,
 				italic = false,
 				transparency = false,
 			},
@@ -49,9 +49,9 @@ return {
 			},
 
 			highlight_groups = {
-				Comment = { italic = true },
-				ColorColumn = { bg = "#26233a" },
-				Keyword = { fg = "#6fa8dc" },
+				-- Comment = { italic = true },
+				-- ColorColumn = { bg = "#26233a" },
+				-- Keyword = { fg = "#6fa8dc" },
 				-- VertSplit = { fg = "muted", bg = "muted" },
 			},
 
@@ -68,6 +68,6 @@ return {
 			end,
 		})
 
-		-- vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme rose-pine-moon")
 	end,
 }

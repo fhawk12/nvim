@@ -6,13 +6,16 @@ typedef long long ll;
 typedef pair<long, long> pll;
 typedef pair<int, int> pii;
 
+const ll inf = LONG_LONG_MAX;
+const int iinif = INT_MAX;
+
 #define endl '\n'
 #define Debug(x) cout << #x << ':' << x << endl
 #define all(v) v.begin(), v.end()
 #define rall(v) v.rbegin(), v.rend()
 
 void solve() {
-  
+
 }
 
 int main() {
