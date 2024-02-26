@@ -20,6 +20,7 @@ return {
 				"rust_analyzer",
 				"cmake",
 				"bashls",
+        "pyright"
 			},
 		})
 
@@ -31,7 +32,8 @@ return {
 			cmake = {},
 			marksman = {},
 			rust_analyzer = {},
-			bashls = {},
+      bashls = {},
+			pyright = {},
 			lua_ls = {
 				settings = {
 					Lua = {
