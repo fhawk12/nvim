@@ -39,5 +39,6 @@ return {
 		map("n", "<leader>/", builtin.live_grep, { desc = "Live grep" })
 		map("n", "<leader>b", builtin.buffers, { desc = "Find buffer" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "Find help doc" })
+		map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find Symbols" })
 	end,
 }

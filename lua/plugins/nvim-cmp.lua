@@ -37,12 +37,13 @@ return {
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
+			-- window = {
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
+			-- },
 			mapping = {
-				["<C-j>"] = cmp.mapping.confirm({ select = false }),
+				["<C-j>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+				["<Tab>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 				["<C-e>"] = cmp.mapping.abort(),
 
 				["<C-n>"] = cmp.mapping(function(fallback)

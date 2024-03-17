@@ -28,6 +28,8 @@ function RunCode()
 		vim.cmd(string.format('term g++ -g "%s" -o "%s" && ./"%s"', filename, running_file, running_file))
 	elseif ft == "python" then
 		vim.cmd(string.format('term python3 "%s"', filename))
+	elseif ft == "java" then
+		vim.cmd(string.format('term java "%s"', filename))
 	elseif ft == "lua" then
 		vim.cmd(string.format('term lua "%s"', filename))
 	elseif ft == "sh" then

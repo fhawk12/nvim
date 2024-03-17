@@ -21,6 +21,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			cmake = { "cmakelang" },
+			java = { "google-java-format" },
 		},
 	},
 }
