@@ -19,6 +19,7 @@ return {
 				"eslint",
 				"rust_analyzer",
 				"cmake",
+        "kotlin_language_server",
 				"bashls",
         "jdtls",
         "pyright"
@@ -34,6 +35,7 @@ return {
 			marksman = {},
 			rust_analyzer = {},
       bashls = {},
+      kotlin_language_server = {},
       jdtls = {},
 			pyright = {},
 			lua_ls = {

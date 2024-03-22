@@ -16,7 +16,6 @@ require("config.keymap")
 require("lazy").setup("plugins")
 require("config.function")
 require("config.autocmd")
-require("utils.run_code")
 
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })

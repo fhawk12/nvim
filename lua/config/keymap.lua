@@ -50,7 +50,6 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Cancel highlight" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
 map("n", "<leader>i", "<cmd>lua ToggleBoolean()<cr>", { desc = "Toggle Boolean" })
-map("n", "<F4>", "<cmd>lua RunCode()<cr>", { desc = "Run Code" })
 map("n", ";f", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show diagnostic" })
 map("n", "U", "J")
 

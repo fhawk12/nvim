@@ -4,6 +4,7 @@ return {
 		"mfussenegger/nvim-dap",
 		"nvim-treesitter/nvim-treesitter",
 		"theHamsta/nvim-dap-virtual-text",
+    "nvim-neotest/nvim-nio"
 	},
 	config = function()
 
