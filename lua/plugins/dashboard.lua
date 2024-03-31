@@ -1,44 +1,44 @@
 return {
-	"echasnovski/mini.starter",
-	version = "*",
-	config = function()
-		require("mini.starter").setup({
-			-- Whether to open starter buffer on VimEnter. Not opened if Neovim was
-			-- started with intent to show something else.
-			autoopen = true,
+	"nvimdev/dashboard-nvim",
+	event = "VimEnter",
+	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	opts = function()
+    local logo = [[
+         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
+         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+    ]]
 
-			-- Whether to evaluate action of single active item
-			evaluate_single = true,
+    logo = string.rep("\n", 8) .. logo .. "\n\n"
+		local opts = {
+			theme = "doom",
+      hide = {
+        -- this is taken care of by lualine
+        -- enabling this messes up the actual laststatus setting after loading a file
+        statusline = false,
+      },
+			config = {
+        header = vim.split(logo, "\n"),
+				center = {
+					{ action = require("telescope.builtin").find_files, icon_hl = "Title", desc = " Find File", icon = " ", key = "f", key_hl = "Number", desc_hl = "String", },
+					{ action = "ene | startinsert", icon_hl = "Title", desc = " New File", icon = " ", key = "n", desc_hl = "String", key_hl = "Number", },
+					{ action = "Telescope oldfiles", icon_hl = "Title", desc = " Recent Files", icon = " ", desc_hl = "String", key_hl = "Number", key = "r", },
+					{ action = "Telescope live_grep", icon_hl = "Title", key_hl = "Number", desc = " Find Text", icon = " ", key = "g", desc_hl = "String", },
+					{ action = 'lua require("persisted").load()', desc_hl = "String", icon_hl = "Title", desc = " Restore Session", icon = " ", key_hl = "Number", key = "s", },
+					{ action = "Lazy", icon_hl = "Title", desc_hl = "String", desc = " Lazy", key_hl = "Number", icon = "󰒲 ", key = "l", },
+					{ action = "qa", key_hl = "Number", desc_hl = "String", icon_hl = "Title", desc = " Quit", icon = " ", key = "q", },
+				},
+			},
+		}
 
-			-- Items to be displayed. Should be an array with the following elements:
-			-- - Item: table with <action>, <name>, and <section> keys.
-			-- - Function: should return one of these three categories.
-			-- - Array: elements of these three types (i.e. item, array, function).
-			-- If `nil` (default), default items will be used (see |mini.starter|).
-			items = nil,
+    for _, button in ipairs(opts.config.center) do
+      button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+      button.key_format = "  %s"
+    end
 
-			-- Header to be displayed before items. Converted to single string via
-			-- `tostring` (use `\n` to display several lines). If function, it is
-			-- evaluated first. If `nil` (default), polite greeting will be used.
-			header = nil,
-
-			-- Footer to be displayed after items. Converted to single string via
-			-- `tostring` (use `\n` to display several lines). If function, it is
-			-- evaluated first. If `nil` (default), default usage help will be shown.
-			footer = nil,
-
-			-- Array  of functions to be applied consecutively to initial content.
-			-- Each function should take and return content for 'Starter' buffer (see
-			-- |mini.starter| and |MiniStarter.content| for more details).
-			content_hooks = nil,
-
-			-- Characters to update query. Each character will have special buffer
-			-- mapping overriding your global ones. Be careful to not add `:` as it
-			-- allows you to go into command mode.
-			query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
-
-			-- Whether to disable showing non-error feedback
-			silent = false,
-		})
+    return opts
 	end,
 }

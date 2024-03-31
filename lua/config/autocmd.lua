@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Refresh neo-tree
+-- Refresh neo-tree after load session
 vim.api.nvim_create_autocmd("SessionLoadPost", {
 	callback = function()
 		Update_nvim_tree_pwd()

@@ -1,5 +1,6 @@
 return {
 	"glepnir/dbsession.nvim",
+  enabled = false,
 	cmd = { "SessionSave", "SessionDelete", "SessionLoad" },
 	keys = {
 		{ "<leader>sl", ":SessionLoad ", desc = "Session Load" },
