@@ -1,8 +1,5 @@
 return {
-	"sainnhe/gruvbox-material",
-	dependencies = {
-		"ellisonleao/gruvbox.nvim",
-	},
+	"fhawk12/gruvbox.nvim",
 	config = function()
 		require("gruvbox").setup({
 			terminal_colors = true, -- add neovim terminal colors
@@ -22,13 +19,12 @@ return {
 			invert_tabline = false,
 			invert_intend_guides = false,
 			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "", -- can be "hard", "soft" or empty string
+			contrast = "soft", -- can be "hard", "soft" or empty string
 			palette_overrides = {},
 			overrides = {},
 			dim_inactive = false,
 			transparent_mode = false,
 		})
-		-- vim.cmd("colorscheme gruvbox")
-		vim.cmd("colorscheme gruvbox-material")
+		vim.cmd("colorscheme gruvbox")
 	end,
 }
