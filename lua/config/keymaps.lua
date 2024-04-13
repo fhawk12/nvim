@@ -4,8 +4,10 @@
 
 local map = vim.keymap.set
 
+-- Cursor movement
 map({ "n", "x" }, "gl", "$", { desc = "GO to end of line" })
 map({ "n", "x" }, "ge", "G", { desc = "GO to end of file" })
 
-map("i", "<C-f>", "<Right>")
-map("i", "<C-b>", "<Left>")
+-- Move curosr when insert mode
+map("i", "<C-l>", "<Right>")
+map("i", "<C-h>", "<Left>")
