@@ -1,13 +1,5 @@
 return {
   {
-    "smjonas/inc-rename.nvim",
-    keys = {
-      { "<leader>rn", ":IncRename ", desc = "Rename" },
-    },
-    config = true,
-  },
-
-  {
     "nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
     opts = function(_, opts)

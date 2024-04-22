@@ -1,5 +1,6 @@
 return {
   "nvim-java/nvim-java",
+  keys = { { "<leader>jr", "<cmd>JavaRunnerRunMain<cr>", desc = "Java Run Main" } },
   dependencies = {
     "nvim-java/lua-async-await",
     "nvim-java/nvim-java-core",
