@@ -2,7 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- show cursor line only in active window
+-- Show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   callback = function()
     local ok, cl = pcall(vim.api.nvim_win_get_var, 0, "auto-cursorline")
@@ -19,5 +19,13 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
       vim.api.nvim_win_set_var(0, "auto-cursorline", cl)
       vim.wo.cursorline = false
     end
+  end,
+})
+
+-- Disable autoformat for some filetype
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "c" },
+  callback = function()
+    vim.b.autoformat = false
   end,
 })

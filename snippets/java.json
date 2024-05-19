@@ -1,0 +1,10 @@
+{
+  "interface": {
+    "prefix": "interface",
+    "body": [
+      "public @interface ${TM_FILENAME_BASE} {",
+      "   ${0}",
+      "}"
+    ]
+  }
+}

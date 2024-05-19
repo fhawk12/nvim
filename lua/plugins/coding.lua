@@ -8,6 +8,11 @@ return {
   },
 
   {
+    "garymjr/nvim-snippets",
+    opts = { search_paths = { "/home/fhawk/.config/nvim/snippets" } },
+  },
+
+  {
     "Wansmer/treesj",
     keys = {
       { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
