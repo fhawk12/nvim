@@ -24,8 +24,24 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 
 -- Disable autoformat for some filetype
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c" },
+  pattern = { "c", "h" },
   callback = function()
     vim.b.autoformat = false
+  end,
+})
+
+-- Disable autoformat for specific filenames
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = { "config.h" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
+-- Disable diagnost for specific filenames
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = { "phrase.md" },
+  callback = function()
+    vim.diagnostic.enable(false)
   end,
 })

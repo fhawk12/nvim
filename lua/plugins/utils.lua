@@ -4,9 +4,9 @@ return {
     dependencies = "MunifTanjim/nui.nvim",
     keys = {
       { ";rr", "<cmd>CompetiTest run<cr>", desc = "Competitest run" },
-      { ";ra", "<cmd>CompetiTest receive testcases<cr>", desc = "Receive testcases" },
+      { ";rt", "<cmd>CompetiTest receive testcases<cr>", desc = "Receive testcases" },
       { ";rc", "<cmd>CompetiTest receive contest<cr>", desc = "Receive contest" },
-      { ";rh", "<cmd>CompetiTest show_ui<cr>", desc = "Show UI" },
+      { ";rs", "<cmd>CompetiTest show_ui<cr>", desc = "Show UI" },
       { ";rd", "<cmd>CompetiTest delete_testcase<cr>", desc = "Delete testcases" },
     },
     config = function()
@@ -18,4 +18,6 @@ return {
       })
     end,
   },
+
+  { "CRAG666/code_runner.nvim", keys = { { "<leader>r", "<cmd>RunCode<cr>" } }, opts = {} },
 }
