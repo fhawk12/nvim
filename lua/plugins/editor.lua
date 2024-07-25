@@ -8,9 +8,9 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "top",
-            preview_width = 0.5,
+            -- preview_width = 0.5,
           },
-          preview_cutoff = 120,
+          -- preview_cutoff = 120,
         },
         sorting_strategy = "ascending",
         winblend = 0,
@@ -36,14 +36,35 @@ return {
   },
 
   {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+  },
+
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    config = function()
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>j", group = "+java" },
+        { "<leader>jr", group = "+run" },
+        { "<leader>jt", group = "+test" },
+      })
+    end,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
     opts = {
-      defaults = {
-        ["<leader>j"] = { name = "+java" },
-        ["<leader>jr"] = { name = "+run" },
-        ["<leader>jt"] = { name = "+test" },
+      inlay_hints = {
+        enabled = false,
       },
     },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
   },
 }

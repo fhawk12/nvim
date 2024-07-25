@@ -22,19 +22,19 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
--- Disable autoformat for some filetype
+-- Disable autoformat after saving
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "h" },
+  pattern = { "*" },
   callback = function()
     vim.b.autoformat = false
   end,
 })
 
--- Disable autoformat for specific filenames
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-  pattern = { "config.h" },
+-- Autoformat lua file after saving
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua" },
   callback = function()
-    vim.b.autoformat = false
+    vim.b.autoformat = true
   end,
 })
 

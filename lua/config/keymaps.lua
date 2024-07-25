@@ -11,3 +11,6 @@ map({ "n", "x" }, "ge", "G", { desc = "GO to end of file" })
 -- Move curosr when insert mode
 map("i", "<C-l>", "<Right>")
 map("i", "<C-h>", "<Left>")
+
+-- Fold current curly brace
+map("n", "zi", "vi{zc", { desc = "Fold current curly brace" })

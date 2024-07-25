@@ -4,4 +4,4 @@
 
 local opt = vim.opt
 
-vim.o.spelllang = ""
+opt.cursorline = false
