@@ -38,7 +38,7 @@ require("lazy").setup({
 	{ "nvim-telescope/telescope.nvim", tag = "0.1.8" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-	{ "kylechui/nvim-surround" },
+	{ "kylechui/nvim-surround", opts = {} },
 	{ "windwp/nvim-autopairs", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
 
@@ -48,6 +48,7 @@ require("lazy").setup({
 	{ "stevearc/conform.nvim" },
 
 	{ "laytan/cloak.nvim" },
+	{ "mg979/vim-visual-multi" },
 
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
