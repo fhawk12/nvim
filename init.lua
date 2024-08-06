@@ -1,7 +1,8 @@
-require("remap")
-require("options")
-require("autocmds")
-require("functions")
+require("config.colemak")
+-- require("config.remap")
+require("config.options")
+require("config.autocmds")
+require("config.functions")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -88,12 +89,12 @@ vim.cmd([[colorscheme tokyonight]])
 
 -- My plugins Configuration
 
-require("lspConfig") -- lsp and autocompletion config
-require("telescopeConfig") -- telescope
-require("treesitterConfig") -- treesitter
-require("undotreeConfig") -- undotree
-require("gitsignsConfig") -- git
-require("conformConfig") -- formatting
-require("harpoonConfig") -- switch buffer
-require("cloakConfig") -- stop youself take dumb mistake
-require("troubleConfig") -- stop youself take dumb mistake
+require("plugins.lspConfig") -- lsp and autocompletion config
+require("plugins.telescopeConfig") -- telescope
+require("plugins.treesitterConfig") -- treesitter
+require("plugins.undotreeConfig") -- undotree
+require("plugins.gitsignsConfig") -- git
+require("plugins.conformConfig") -- formatting
+require("plugins.harpoonConfig") -- switch buffer
+require("plugins.cloakConfig") -- stop youself take dumb mistake
+require("plugins.troubleConfig") -- stop youself take dumb mistake

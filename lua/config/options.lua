@@ -23,6 +23,3 @@ vim.opt.splitright = true
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99
