@@ -1,5 +1,4 @@
-require("config.colemak")
--- require("config.remap")
+require("config.remap")
 require("config.options")
 require("config.autocmds")
 require("config.functions")
@@ -49,7 +48,6 @@ require("lazy").setup({
 	{ "stevearc/conform.nvim" },
 
 	{ "laytan/cloak.nvim" },
-	{ "mg979/vim-visual-multi" },
 
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
@@ -78,17 +76,18 @@ require("lazy").setup({
 			{ "rafamadriz/friendly-snippets" },
 		},
 	},
+	{ "saecki/crates.nvim", event = { "BufRead Cargo.toml" }, opts = {}, },
 
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { "rose-pine" } },
 
 	-- automatically check for plugin updates
 	checker = { enabled = false },
 })
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme rose-pine]])
 
 -- My plugins Configuration
-
+require("plugins.colorscheme") -- colorscheme
 require("plugins.lspConfig") -- lsp and autocompletion config
 require("plugins.telescopeConfig") -- telescope
 require("plugins.treesitterConfig") -- treesitter
@@ -98,3 +97,4 @@ require("plugins.conformConfig") -- formatting
 require("plugins.harpoonConfig") -- switch buffer
 require("plugins.cloakConfig") -- stop youself take dumb mistake
 require("plugins.troubleConfig") -- stop youself take dumb mistake
+require("plugins.tmux-navigator") -- stop youself take dumb mistake
