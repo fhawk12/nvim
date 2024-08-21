@@ -19,6 +19,7 @@ local lsp_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 	vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+	vim.keymap.set("n", "<leader>;", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 end
 
 lsp_zero.extend_lspconfig({
@@ -27,14 +28,27 @@ lsp_zero.extend_lspconfig({
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
+local server_names = {
+	"clangd",
+	-- "rust_analyzer", conflict with rustacea.nvim
+	"tsserver",
+	"lua_ls",
+	"marksman",
+	"eslint",
+	"jsonls",
+	"cssls",
+	"css_variables",
+}
+
+for _, name in ipairs(server_names) do
+	require("lspconfig")[name].setup({})
+end
+
+local ensure_installed_servers = vim.tbl_extend("force", server_names, { "rust_analyzer" })
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "rust_analyzer", "tsserver" },
-	handlers = {
-		function(server_name)
-			require("lspconfig")[server_name].setup({})
-		end,
-	},
+	ensure_installed = ensure_installed_servers,
 })
 
 -- Autocompletion config
@@ -55,6 +69,8 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "npm" },
+		{ name = "emoji" },
+		{ name = "crates" },
 	},
 	preselect = "iterm",
 	completion = {

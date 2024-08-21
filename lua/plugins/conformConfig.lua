@@ -3,16 +3,24 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		rust = { "rustfmt", lsp_format = "fallback" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-		typescript = { "prettierd", "prettier", stop_after_first = true },
-		html = { "prettierd", "prettier", stop_after_first = true },
-		css = { "prettierd", "prettier", stop_after_first = true },
-		scss = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		tsx = { "prettier" },
+		jsx = { "prettier" },
+		json = { "prettier" },
+		toml = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		scss = { "prettier" },
+		markdown = { "prettier" },
+	},
+	default_format_opts = {
+		lsp_format = "fallback",
 	},
 	-- format_on_save = {
-	-- These options will be passed to conform.format()
-	-- timeout_ms = 500,
-	-- lsp_format = "fallback",
+	--     -- These options will be passed to conform.format()
+	--     timeout_ms = 500,
+	--     lsp_format = "fallback",
 	-- },
 })
 

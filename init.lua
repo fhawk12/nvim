@@ -24,8 +24,7 @@ require("lazy").setup({
 	-- Colorscheme
 	{ "folke/tokyonight.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
-
-	{ "christoomey/vim-tmux-navigator" },
+	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
 
 	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "nvim-treesitter/nvim-treesitter-context" },
@@ -33,14 +32,16 @@ require("lazy").setup({
 
 	{ "ThePrimeagen/harpoon", branch = "harpoon2" },
 
-	{ "folke/trouble.nvim", opts = {} },
+	{ "folke/trouble.nvim", opts = {}, keys = { { "<leader>x", "<cmd>Trouble diagnostics toggle<cr>" } } },
+	{ "folke/todo-comments.nvim", opts = {} },
+
+	{ "hedyhli/outline.nvim", opts = {}, keys = { { "<leader>o", "<cmd>Outline<cr>" } } },
 
 	{ "nvim-telescope/telescope.nvim", tag = "0.1.8" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	{ "kylechui/nvim-surround", opts = {} },
 	{ "windwp/nvim-autopairs", opts = {} },
-	{ "folke/todo-comments.nvim", opts = {} },
 
 	{ "mbbill/undotree" },
 	{ "lewis6991/gitsigns.nvim" },
@@ -70,16 +71,29 @@ require("lazy").setup({
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "David-Kunz/cmp-npm" },
+			{ "hrsh7th/cmp-emoji" },
 
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
 		},
 	},
-	{ "saecki/crates.nvim", event = { "BufRead Cargo.toml" }, opts = {}, },
+
+	-- Rust
+	{ "mrcjkb/rustaceanvim", version = "^5" },
+	{ "saecki/crates.nvim", event = { "BufRead Cargo.toml" } },
+
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = { "markdown" },
+		build = "cd app && yarn install",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+	},
 
 	install = { colorscheme = { "rose-pine" } },
-
 	-- automatically check for plugin updates
 	checker = { enabled = false },
 })
@@ -95,6 +109,5 @@ require("plugins.undotreeConfig") -- undotree
 require("plugins.gitsignsConfig") -- git
 require("plugins.conformConfig") -- formatting
 require("plugins.harpoonConfig") -- switch buffer
-require("plugins.cloakConfig") -- stop youself take dumb mistake
-require("plugins.troubleConfig") -- stop youself take dumb mistake
-require("plugins.tmux-navigator") -- stop youself take dumb mistake
+require("plugins.cloakConfig") -- hide sensitive infomation
+require("plugins.rustConfig") -- rust

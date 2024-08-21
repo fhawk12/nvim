@@ -1,4 +1,12 @@
 require("telescope").setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<C-k>"] = "move_selection_next",
+				["<C-;>"] = "move_selection_previous",
+			},
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true,
