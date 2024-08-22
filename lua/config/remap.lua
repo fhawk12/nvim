@@ -16,9 +16,6 @@ map({ "n", "v", "o" }, "I", "L")
 -- Text objects
 map("x", "u", "i")
 
--- Select all
-map("n", "<leader>ya", ":%y<cr>")
-
 -- Fold
 map("n", "zib", "vaBzf")
 map("n", "zit", "vatzf")
@@ -32,8 +29,8 @@ map("n", "H", ":bn<cr>")
 map("n", "I", ":bp<cr>")
 
 -- Comment
-map("v", "<leader>i", "gc", { remap = true })
-map("n", "<leader>i", "gcc", { remap = true })
+map("v", "<leader>i", "<cmd>lua Comment()<cr>")
+map("n", "<leader>i", "<cmd>lua Comment()<cr>")
 
 -- Undo
 map("n", "U", "<C-r>")
@@ -47,6 +44,12 @@ map({ "n", "v", "o" }, "t", "i")
 map({ "n", "v", "o" }, "T", "I")
 map("i", "<C-i>", "<Right>")
 map("i", "<C-h>", "<Left>")
+
+-- Complete
+map("i", "<C-]>", "<C-X><C-]>") -- tads
+map("i", "<C-f>", "<C-X><C-F>") -- file name
+map("i", "<C-d>", "<C-X><C-D>") -- detinition or macros
+map("i", "<C-l>", "<C-X><C-L>") -- whole lines
 
 -- Next/previous
 map({ "n", "v" }, "k", "n")

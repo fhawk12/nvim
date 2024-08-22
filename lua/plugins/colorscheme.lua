@@ -15,6 +15,10 @@ require("rose-pine").setup({
 		italic = true,
 		transparency = true,
 	},
+
+	highlight_groups = {
+		PmenuExtra = { bg = "none" },
+	},
 })
 
 vim.cmd("colorscheme rose-pine")
