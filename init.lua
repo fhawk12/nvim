@@ -54,7 +54,6 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-web-devicons" },
 
 	-- LSP
-	-- Autocompletion
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v4.x",
@@ -62,20 +61,6 @@ require("lazy").setup({
 			{ "neovim/nvim-lspconfig" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
-		},
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "David-Kunz/cmp-npm" },
-			{ "hrsh7th/cmp-emoji" },
-
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
 		},
 	},
 
@@ -98,11 +83,9 @@ require("lazy").setup({
 	checker = { enabled = false },
 })
 
-vim.cmd([[colorscheme rose-pine]])
-
 -- My plugins Configuration
 require("plugins.colorscheme") -- colorscheme
-require("plugins.lspConfig") -- lsp and autocompletion config
+require("plugins.lspConfig") -- lsp
 require("plugins.telescopeConfig") -- telescope
 require("plugins.treesitterConfig") -- treesitter
 require("plugins.undotreeConfig") -- undotree
