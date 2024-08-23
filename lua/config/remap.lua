@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+local utils = require("utils")
 local map = vim.keymap.set
 
 -- Up/down/left/right
@@ -28,10 +29,6 @@ map("v", "E", ":m '<-2<CR>gv=gv")
 map("n", "H", ":bn<cr>")
 map("n", "I", ":bp<cr>")
 
--- Comment
-map("v", "<leader>i", "<cmd>lua Comment()<cr>")
-map("n", "<leader>i", "<cmd>lua Comment()<cr>")
-
 -- Undo
 map("n", "U", "<C-r>")
 
@@ -43,6 +40,7 @@ map({ "n", "v", "o", "x" }, "F", "E")
 map({ "n", "v", "o" }, "t", "i")
 map({ "n", "v", "o" }, "T", "I")
 map("i", "<C-i>", "<Right>")
+map("i", "<tab>", "<tab>")
 map("i", "<C-h>", "<Left>")
 
 -- Complete
@@ -79,8 +77,12 @@ map("n", "<leader>|", ":vsplit<cr>")
 -- Explore
 map("n", "<leader>e", vim.cmd.Ex)
 
+-- Terminal
+map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
+
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
 
--- Function
-map("n", "<leader>b", ":lua ToggleBoolean()<cr>")
+map("n", "<leader>b", utils.toggle_bool)
+map({ "n", "v" }, "<leader>i", utils.comment)
+-- map("n", "<C-p>", utils.terminal)

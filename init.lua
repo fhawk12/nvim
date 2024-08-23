@@ -1,7 +1,7 @@
-require("config.remap")
+require("utils")
 require("config.options")
 require("config.autocmds")
-require("config.functions")
+require("config.remap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -24,13 +24,14 @@ require("lazy").setup({
 	-- Colorscheme
 	{ "folke/tokyonight.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
+	{ "catppuccin/nvim", name = "catppuccin" },
 
 	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 
 	{ "ThePrimeagen/harpoon", branch = "harpoon2" },
+	{ "akinsho/toggleterm.nvim" },
 
 	{ "folke/trouble.nvim", opts = {}, keys = { { "<leader>x", "<cmd>Trouble diagnostics toggle<cr>" } } },
 	{ "folke/todo-comments.nvim", opts = {} },
@@ -66,7 +67,7 @@ require("lazy").setup({
 
 	-- Rust
 	{ "mrcjkb/rustaceanvim", version = "^5" },
-	{ "saecki/crates.nvim", event = { "BufRead Cargo.toml" } },
+	{ "saecki/crates.nvim", tag = "stable", opts = {} },
 
 	{
 		"iamcco/markdown-preview.nvim",
@@ -94,3 +95,4 @@ require("plugins.conformConfig") -- formatting
 require("plugins.harpoonConfig") -- switch buffer
 require("plugins.cloakConfig") -- hide sensitive infomation
 require("plugins.rustConfig") -- rust
+require("plugins.toggletermConfig") -- terminal

@@ -20,8 +20,25 @@ require("rose-pine").setup({
 		PmenuExtra = { bg = "none" },
 	},
 })
-
 vim.cmd("colorscheme rose-pine")
--- vim.cmd("colorscheme rose-pine-main")
--- vim.cmd("colorscheme rose-pine-moon")
--- vim.cmd("colorscheme rose-pine-dawn")
+
+require("tokyonight").setup({
+	transparent = true,
+})
+-- vim.cmd[[colorscheme tokyonight-night]]
+
+require("catppuccin").setup({
+	flavour = "latte", -- latte, frappe, macchiato, mocha
+	transparent_background = true, -- disables setting the background color.
+	term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+	dim_inactive = {
+		enabled = false, -- dims the background color of inactive window
+		shade = "dark",
+		percentage = 0.15, -- percentage of the shade to apply to the inactive window
+	},
+	no_underline = true, -- Force no underline
+	color_overrides = {},
+	custom_highlights = {},
+	default_integrations = true,
+})
+-- vim.cmd.colorscheme("catppuccin")
