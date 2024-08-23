@@ -48,6 +48,7 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim" },
 
 	{ "stevearc/conform.nvim" },
+	{ "mistweaverco/kulala.nvim", opts = {} },
 
 	{ "laytan/cloak.nvim" },
 
@@ -69,6 +70,18 @@ require("lazy").setup({
 	{ "mrcjkb/rustaceanvim", version = "^5" },
 	{ "saecki/crates.nvim", tag = "stable", opts = {} },
 
+	-- Test
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+
+	-- Markdown
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
@@ -96,3 +109,4 @@ require("plugins.harpoonConfig") -- switch buffer
 require("plugins.cloakConfig") -- hide sensitive infomation
 require("plugins.rustConfig") -- rust
 require("plugins.toggletermConfig") -- terminal
+require("plugins.neotestConfig") -- test
