@@ -1,6 +1,3 @@
-local api = vim.api
-local window = require("utils.window")
-
 local M = {}
 
 M.bool = function()

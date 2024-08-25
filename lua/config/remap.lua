@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-local utils = require("utils")
 local map = vim.keymap.set
 
 -- Up/down/left/right
@@ -33,8 +32,8 @@ map("n", "I", ":bp<cr>")
 map("n", "U", "<C-r>")
 
 -- End of word/Word
-map({ "n", "v", "o", "x" }, "f", "e")
-map({ "n", "v", "o", "x" }, "F", "E")
+map({ "n", "v" }, "f", "e")
+map({ "n", "v" }, "F", "E")
 
 -- Insert Mode
 map({ "n", "v", "o" }, "t", "i")
@@ -42,12 +41,6 @@ map({ "n", "v", "o" }, "T", "I")
 map("i", "<C-i>", "<Right>")
 map("i", "<tab>", "<tab>")
 map("i", "<C-h>", "<Left>")
-
--- Complete
-map("i", "<C-]>", "<C-X><C-]>") -- tads
-map("i", "<C-f>", "<C-X><C-F>") -- file name
-map("i", "<C-d>", "<C-X><C-D>") -- detinition or macros
-map("i", "<C-l>", "<C-X><C-L>") -- whole lines
 
 -- Next/previous
 map({ "n", "v" }, "k", "n")
@@ -83,6 +76,5 @@ map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
 
-map("n", "<leader>b", utils.toggle_bool)
-map({ "n", "v" }, "<leader>i", utils.comment)
--- map("n", "<C-p>", utils.terminal)
+map("n", "<leader>b", require("utils.toggle").bool)
+map({ "n", "v" }, "<leader>i", require("utils.toggle").comment)
