@@ -78,3 +78,6 @@ map("n", "<Esc>", "<cmd>noh<cr>")
 
 map("n", "<leader>b", require("utils.toggle").bool)
 map({ "n", "v" }, "<leader>i", require("utils.toggle").comment)
+map("n", "<leader>fv", require("utils.treesitter-unit").select_function)
+map("n", "<leader>fh", require("utils.treesitter-unit").goto_function_head)
+map("n", "<leader>fe", require("utils.treesitter-unit").goto_function_end)

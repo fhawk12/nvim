@@ -12,7 +12,7 @@ return {
 		{ "hrsh7th/cmp-path" },
 	},
 
-	config = function()
+	init = function()
 		local lsp_zero = require("lsp-zero")
 
 		-- lsp_attach is where you enable features that only work
@@ -38,7 +38,7 @@ return {
 		lsp_zero.extend_lspconfig({
 			sign_text = true,
 			lsp_attach = lsp_attach,
-			-- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})
 
 		vim.g.rustaceanvim = {
@@ -71,7 +71,8 @@ return {
 		})
 
 		local cmp = require("cmp")
-		local cmp_format = require("lsp-zero").cmp_format()
+		local cmp_action = require("lsp-zero").cmp_action()
+		local cmp_format = require("lsp-zero").cmp_format({ details = true, max_width = 50 })
 
 		cmp.setup({
 			sources = {
@@ -86,6 +87,9 @@ return {
 
 				["<C-k>"] = cmp.mapping.select_next_item(),
 				["<C-;>"] = cmp.mapping.select_prev_item(),
+
+				["<Tab>"] = cmp_action.vim_snippet_jump_forward(),
+				["<S-Tab>"] = cmp_action.vim_snippet_jump_backward(),
 
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
