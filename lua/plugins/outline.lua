@@ -1,5 +1,5 @@
 return {
 	"hedyhli/outline.nvim",
-	keys = { { "<leader>o", "<cmd>Outline<cr>" } },
+	keys = { { "<space>o", "<cmd>Outline<cr>" } },
 	opts = {},
 }

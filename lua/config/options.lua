@@ -22,8 +22,10 @@ vim.opt.splitright = true
 
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
-vim.opt.clipboard = "unnamedplus"
 
 vim.opt.updatetime = 50
 
 vim.opt.swapfile = false
+
+vim.opt.conceallevel = 3
+vim.o.foldlevelstart = 99

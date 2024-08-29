@@ -1,6 +1,6 @@
-vim.g.mapleader = " "
-
 local map = vim.keymap.set
+
+map("n", "<space>xx", "<cmd>%s/leader/space/g<cr>")
 
 -- Up/down/left/right
 map({ "n", "v", "o" }, "h", "h")
@@ -15,6 +15,10 @@ map({ "n", "v", "o" }, "I", "L")
 
 -- Text objects
 map("x", "u", "i")
+
+-- Better yank
+map({ "n", "v" }, "<space>y", '"+y')
+map({ "n", "v" }, "<space>p", '"+p')
 
 -- Fold
 map("n", "zib", "vaBzf")
@@ -57,18 +61,22 @@ map({ "n", "x" }, "e", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<leader>w", "<C-w>")
+map("n", "<space>w", "<C-w>")
+
+map("n", "<C-w>>", "<c-w>5<")
+map("n", "<C-w><", "<c-w>5>")
+
 map("n", "<C-h>", "<C-w>h", { remap = true })
 map("n", "<C-n>", "<C-w>j", { remap = true })
 map("n", "<C-e>", "<C-w>k", { remap = true })
 map("n", "<C-i>", "<C-w>l", { remap = true })
 
 -- Window Split
-map("n", "<leader>-", ":split<cr>")
-map("n", "<leader>|", ":vsplit<cr>")
+map("n", "<space>-", ":split<cr>")
+map("n", "<space>|", ":vsplit<cr>")
 
 -- Explore
-map("n", "<leader>e", vim.cmd.Ex)
+map("n", "<space>e", vim.cmd.Ex)
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
@@ -76,8 +84,25 @@ map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
 
-map("n", "<leader>b", require("utils.toggle").bool)
-map({ "n", "v" }, "<leader>i", require("utils.toggle").comment)
-map("n", "<leader>fv", require("utils.treesitter-unit").select_function)
-map("n", "<leader>fh", require("utils.treesitter-unit").goto_function_head)
-map("n", "<leader>fe", require("utils.treesitter-unit").goto_function_end)
+map("n", "<space>b", require("utils.toggle").bool)
+map({ "n", "v" }, "<space>i", require("utils.toggle").comment)
+map("n", "<space>vv", require("utils.ts-utils").select_function)
+map("n", "<space>vh", require("utils.ts-utils").goto_function_head)
+map("n", "<space>ve", require("utils.ts-utils").goto_function_end)
+
+-- Snippet
+vim.keymap.set({ 'i', 's' }, '<Tab>', function()
+  if vim.snippet.active({ direction = 1 }) then
+    return '<cmd>lua vim.snippet.jump(1)<cr>'
+  else
+    return '<Tab>'
+  end
+end, { expr = true })
+
+vim.keymap.set({ 'i', 's' }, '<S-Tab>', function()
+  if vim.snippet.active({ direction = -1 }) then
+    return '<cmd>lua vim.snippet.jump(-1)<cr>'
+  else
+    return '<Tab>'
+  end
+end, { expr = true })
