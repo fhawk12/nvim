@@ -16,9 +16,11 @@ map({ "n", "v", "o" }, "I", "L")
 -- Text objects
 map("x", "u", "i")
 
--- Better yank
-map({ "n", "v" }, "<space>y", '"+y')
+-- Better yank and paste
+map("n", "<space>Y", '"+y$')
+map("v", "<space>y", '"+y')
 map({ "n", "v" }, "<space>p", '"+p')
+map({ "n", "v" }, "<space>P", '"+P')
 
 -- Fold
 map("n", "zib", "vaBzf")
@@ -71,10 +73,6 @@ map("n", "<C-n>", "<C-w>j", { remap = true })
 map("n", "<C-e>", "<C-w>k", { remap = true })
 map("n", "<C-i>", "<C-w>l", { remap = true })
 
--- Window Split
-map("n", "<space>-", ":split<cr>")
-map("n", "<space>|", ":vsplit<cr>")
-
 -- Explore
 map("n", "<space>e", vim.cmd.Ex)
 
@@ -84,7 +82,7 @@ map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
 
-map("n", "<space>b", require("utils.toggle").bool)
+map("n", "<space>y", require("utils.toggle").bool)
 map({ "n", "v" }, "<space>i", require("utils.toggle").comment)
 map("n", "<space>vv", require("utils.ts-utils").select_function)
 map("n", "<space>vh", require("utils.ts-utils").goto_function_head)

@@ -12,6 +12,7 @@ return {
       vim.keymap.set("n", "E", vim.lsp.buf.hover, opts)
       vim.keymap.set("n", "<space>;", vim.diagnostic.open_float, opts)
       vim.keymap.set({ "n", "x" }, "<space>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+      vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 
       vim.keymap.set("n", "lr", vim.lsp.buf.references, opts)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)

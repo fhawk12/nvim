@@ -28,6 +28,7 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
+        { name = "crates" }
       }),
       formatting = {
         format = function(entry, vim_item)
@@ -36,6 +37,7 @@ return {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
             path = "[Path]",
+            crates = "[Crates]",
           })[entry.source.name]
           return vim_item
         end
@@ -56,6 +58,9 @@ return {
     -- Use cmdline & path source for ":" (if you enabled `native_menu`, this won"t work anymore).
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
+      view = {
+        entries = { name = 'wildmenu', separator = ' | ' }
+      },
       sources = cmp.config.sources({
         { name = "path" },
         { name = "cmdline" }

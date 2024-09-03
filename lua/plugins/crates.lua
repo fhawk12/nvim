@@ -3,7 +3,7 @@ return {
   event = { "BufRead Cargo.toml" },
   opts = {
     completion = {
-      cmp = { enabled = true },
+      cmp = { enabled = true }, -- don't forget add source to nvim-cmp
     },
   },
 }
