@@ -29,3 +29,7 @@ vim.opt.swapfile = false
 
 vim.opt.conceallevel = 3
 vim.o.foldlevelstart = 99
+
+vim.o.autoread = true
+
+vim.o.laststatus = 3

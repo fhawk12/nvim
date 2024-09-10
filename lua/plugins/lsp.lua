@@ -8,30 +8,13 @@ return {
   config = function()
     local on_attach = function(_, bufnr)
       local opts = { buffer = bufnr, noremap = true, silent = true }
-
-      vim.keymap.set("n", "E", vim.lsp.buf.hover, opts)
       vim.keymap.set("n", "<space>;", vim.diagnostic.open_float, opts)
-      vim.keymap.set({ "n", "x" }, "<space>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-      vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
-
-      vim.keymap.set("n", "lr", vim.lsp.buf.references, opts)
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-      vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-
-      vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
-
-      vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-      vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-      vim.keymap.set("n", "<space>wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end, opts)
     end
 
     local server_names = {
       "clangd",
       "rust_analyzer",
-      "tsserver",
+      "ts_ls",
       "lua_ls",
       "cssls",
       "css_variables",
@@ -50,5 +33,32 @@ return {
         end,
       },
     })
+
+    require('lspconfig').lua_ls.setup {
+      on_attach = on_attach,
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using
+            version = 'LuaJIT',
+            path = vim.split(package.path, ';'),
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = {
+              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+              [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            },
+          },
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    }
   end,
 }

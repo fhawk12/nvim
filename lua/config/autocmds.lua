@@ -25,3 +25,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- Auto enter insert mode when I open a terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function ()
+    vim.cmd("startinsert")
+  end
+})

@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-map("n", "<space>xx", "<cmd>%s/leader/space/g<cr>")
-
 -- Up/down/left/right
 map({ "n", "v", "o" }, "h", "h")
 map({ "n", "v", "o" }, "n", "j")
@@ -78,6 +76,7 @@ map("n", "<space>e", vim.cmd.Ex)
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
+map("t", "<C-[>", "<C-\\><C-n>", { remap = false })
 
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
