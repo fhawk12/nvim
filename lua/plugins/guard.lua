@@ -11,7 +11,11 @@ return {
 
 		ft("typescript,javascript,typescriptreact,javascriptreact"):fmt("prettier")
 
+		ft("css,scss"):fmt("prettier")
+
 		ft("rust"):fmt("rustfmt")
+
+		ft("go"):fmt("lsp")
 
 		ft("lua"):fmt("lsp"):append("stylua")
 
