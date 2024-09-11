@@ -32,4 +32,5 @@ vim.o.foldlevelstart = 99
 
 vim.o.autoread = true
 
+vim.o.cmdheight = 1
 vim.o.laststatus = 3

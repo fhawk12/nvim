@@ -7,13 +7,16 @@ return {
 		{
 			"nvimdev/lspsaga.nvim",
 			opts = {
+				symbol_in_winbar = {
+					enable = false,
+				},
 				outline = {
 					keys = {
 						jump = "<cr>",
 					},
 				},
-				ui = {
-					code_action = "",
+				lightbulb = {
+					enable = false,
 				},
 			},
 		},
@@ -26,16 +29,18 @@ return {
 			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
 			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
 			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
-			vim.keymap.set("n", "<C-[>", "<cmd>Lspsaga goto_definition<cr>", opts)
+			vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
 			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 			vim.keymap.set("n", "<space>j", "<cmd>Lspsaga finder<cr>", opts)
-			vim.keymap.set({ "n", "t" }, ",t", "<cmd>Lspsaga term_toggle<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
 			vim.keymap.set("n", "<space>r", "<cmd>Lspsaga rename<cr>", opts)
-			vim.keymap.set("n", "<space>;", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "<space>R", "<cmd>Lspsaga project_replace<cr>", opts)
+			vim.keymap.set("n", "<space>;", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+			vim.keymap.set("n", "<space>x", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
 		end
+		vim.keymap.set({ "n", "t" }, "<C-,>", "<cmd>Lspsaga term_toggle<cr>")
 
 		local server_names = {
 			"clangd",

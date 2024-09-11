@@ -79,7 +79,7 @@ map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
 map("t", "<C-[>", "<C-\\><C-n>", { remap = false })
 
 -- Cancel highlight
-map("n", "<Esc>", "<cmd>noh<cr>")
+map("n", "<Esc>", "<cmd>noh<cr>", { remap = false })
 
 map("n", "<space>y", require("utils.toggle").bool)
 map({ "n", "v" }, "<space>i", require("utils.toggle").comment)
@@ -88,18 +88,18 @@ map("n", "<space>vh", require("utils.ts-utils").goto_function_head)
 map("n", "<space>ve", require("utils.ts-utils").goto_function_end)
 
 -- Snippet
-vim.keymap.set({ 'i', 's' }, '<Tab>', function()
-  if vim.snippet.active({ direction = 1 }) then
-    return '<cmd>lua vim.snippet.jump(1)<cr>'
-  else
-    return '<Tab>'
-  end
+vim.keymap.set({ "i", "s" }, "<Tab>", function()
+	if vim.snippet.active({ direction = 1 }) then
+		return "<cmd>lua vim.snippet.jump(1)<cr>"
+	else
+		return "<Tab>"
+	end
 end, { expr = true })
 
-vim.keymap.set({ 'i', 's' }, '<S-Tab>', function()
-  if vim.snippet.active({ direction = -1 }) then
-    return '<cmd>lua vim.snippet.jump(-1)<cr>'
-  else
-    return '<Tab>'
-  end
+vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+	if vim.snippet.active({ direction = -1 }) then
+		return "<cmd>lua vim.snippet.jump(-1)<cr>"
+	else
+		return "<Tab>"
+	end
 end, { expr = true })

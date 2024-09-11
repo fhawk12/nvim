@@ -9,11 +9,13 @@ return {
 	config = function()
 		local ft = require("guard.filetype")
 
-		ft("typescript,javascript,typescriptreact"):fmt("prettier")
+		ft("typescript,javascript,typescriptreact,javascriptreact"):fmt("prettier")
 
-		ft("c,cpp"):fmt("clang-format")
+		ft("rust"):fmt("rustfmt")
 
 		ft("lua"):fmt("lsp"):append("stylua")
+
+		ft("c,cpp"):fmt("clang-format")
 
 		require("guard").setup({
 			fmt_on_save = false,
