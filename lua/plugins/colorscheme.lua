@@ -1,6 +1,14 @@
 return {
-	{ "rktjmp/lush.nvim" },
 	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+	{
+		"sainnhe/gruvbox-material",
+		config = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.g.gruvbox_material_better_performance = 1
+
+			-- vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 	{
 		"slugbyte/lackluster.nvim",
 		lazy = false,

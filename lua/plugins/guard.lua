@@ -15,7 +15,7 @@ return {
 
 		ft("rust"):fmt("rustfmt")
 
-		ft("go"):fmt("lsp")
+		ft("go,gomod,gowork,gotmpl"):fmt("lsp")
 
 		ft("lua"):fmt("lsp"):append("stylua")
 

@@ -32,7 +32,7 @@ return {
 			vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
 			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-			vim.keymap.set("n", "<space>j", "<cmd>Lspsaga finder<cr>", opts)
+			vim.keymap.set("n", "<space>sr", "<cmd>Lspsaga finder<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
 			vim.keymap.set("n", "<space>r", "<cmd>Lspsaga rename<cr>", opts)
