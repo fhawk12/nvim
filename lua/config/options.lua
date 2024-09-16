@@ -32,5 +32,12 @@ vim.o.foldlevelstart = 99
 
 vim.o.autoread = true
 
-vim.o.cmdheight = 1
-vim.o.laststatus = 3
+vim.opt.undofile = true
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.confirm = true
+
+vim.opt.pumblend = 10
+vim.opt.pumheight = 10
+
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 3

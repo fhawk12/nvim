@@ -13,10 +13,28 @@ return {
 		"slugbyte/lackluster.nvim",
 		lazy = false,
 		priority = 1000,
-		init = function()
-			-- vim.cmd.colorscheme("lackluster")
+		config = function()
+			local lackluster = require("lackluster")
+			lackluster.setup({
+        tweak_syntax = {
+          comment = lackluster.color.gray5
+        },
+				tweak_highlight = {
+					["@keyword"] = {
+						overwrite = true,
+						bold = false,
+						italic = true,
+						fg = lackluster.color.gray6,
+					},
+					["@keyword.return"] = {
+						overwrite = true,
+						bold = false,
+						italic = true,
+						fg = lackluster.color.green,
+					},
+				},
+			})
 			vim.cmd.colorscheme("lackluster-hack")
-			-- vim.cmd.colorscheme("lackluster-mint")
 		end,
 	},
 	{

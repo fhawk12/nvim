@@ -11,7 +11,7 @@ return {
 
 		ft("typescript,javascript,typescriptreact,javascriptreact"):fmt("prettier")
 
-		ft("css,scss"):fmt("prettier")
+		ft("html,css,scss"):fmt("prettier")
 
 		ft("rust"):fmt("rustfmt")
 
