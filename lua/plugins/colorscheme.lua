@@ -1,5 +1,10 @@
 return {
-	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+	{
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 	{
 		"sainnhe/gruvbox-material",
 		config = function()
@@ -16,9 +21,13 @@ return {
 		config = function()
 			local lackluster = require("lackluster")
 			lackluster.setup({
-        tweak_syntax = {
-          comment = lackluster.color.gray5
-        },
+				tweak_syntax = {
+					comment = lackluster.color.gray5,
+				},
+				tweak_background = {
+					-- normal = "default", -- main background
+					normal = "none", -- transparent
+				},
 				tweak_highlight = {
 					["@keyword"] = {
 						overwrite = true,
@@ -63,7 +72,7 @@ return {
 				styles = {
 					bold = false,
 					italic = false,
-					transparency = false,
+					transparency = true,
 				},
 
 				highlight_groups = {

@@ -5,6 +5,8 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
+		{ "Snikimonkd/cmp-go-pkgs" },
+		{ "Saecki/crates.nvim" }, -- config in crates.lua
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -13,6 +15,10 @@ return {
 				expand = function(args)
 					vim.snippet.expand(args.body)
 				end,
+			},
+			window = {
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<cr>"] = cmp.mapping.confirm({ select = true }),
@@ -29,6 +35,7 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "crates" },
+				{ name = "go_pkgs" },
 			}),
 			formatting = {
 				format = function(entry, vim_item)
@@ -38,6 +45,7 @@ return {
 						nvim_lsp = "[LSP]",
 						path = "[Path]",
 						crates = "[Crates]",
+						go_pkgs = "[pkgs]",
 					})[entry.source.name]
 					return vim_item
 				end,

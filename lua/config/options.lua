@@ -27,7 +27,7 @@ vim.opt.updatetime = 50
 
 vim.opt.swapfile = false
 
-vim.opt.conceallevel = 3
+vim.opt.conceallevel = 2
 vim.o.foldlevelstart = 99
 
 vim.o.autoread = true
