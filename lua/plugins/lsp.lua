@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		{ "neovim/nvim-lspconfig" },
 		{ "williamboman/mason.nvim" },
+		{ "stevearc/dressing.nvim", opts = {} },
 		{ "j-hui/fidget.nvim", opts = {} },
 		{
 			"nvimdev/lspsaga.nvim",
@@ -65,9 +66,12 @@ return {
 			},
 		})
 
-		require("lspconfig").lua_ls.setup({
+		local nvim_lsp = require("lspconfig")
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+		nvim_lsp.lua_ls.setup({
 			on_attach = on_attach,
-			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			capabilities = capabilities,
 			settings = {
 				Lua = {
 					runtime = {
@@ -89,6 +93,25 @@ return {
 						enable = false,
 					},
 				},
+			},
+		})
+
+		nvim_lsp.gopls.setup({
+			cmd = { "gopls" },
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					experimentalPostfixCompletions = true,
+					analyses = {
+						unusedparams = true,
+						shadow = true,
+					},
+					staticcheck = true,
+				},
+			},
+			init_options = {
+				usePlaceholders = true,
 			},
 		})
 	end,

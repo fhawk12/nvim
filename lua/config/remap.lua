@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- Up/down/left/right
-map({ "n", "v", "o" }, "h", "h")
+-- map({ "n", "v", "o" }, "h", "h")
 map({ "n", "v", "o" }, "n", "j")
 map({ "n", "v", "o" }, "e", "k")
 map({ "n", "v", "o" }, "i", "l")
@@ -75,11 +75,11 @@ map("n", "<C-i>", "<C-w>l", { remap = true })
 map("n", "<space>e", vim.cmd.Ex)
 
 -- Terminal
-map("t", "<Esc>", "<C-\\><C-n>", { remap = false })
-map("t", "<C-[>", "<C-\\><C-n>", { remap = false })
+map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "<C-[>", "<C-\\><C-n>")
 
 -- Cancel highlight
-map("n", "<Esc>", "<cmd>noh<cr>", { remap = false })
+map("n", "<Esc>", "<cmd>noh<cr>")
 
 map("n", "<space>y", require("utils.toggle").bool)
 map({ "n", "v" }, "<space>i", require("utils.toggle").comment)
@@ -94,7 +94,7 @@ vim.keymap.set({ "i", "s" }, "<Tab>", function()
 	else
 		return "<Tab>"
 	end
-end, { expr = true })
+end, { expr = true, silent = true })
 
 vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
 	if vim.snippet.active({ direction = -1 }) then
@@ -102,4 +102,8 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
 	else
 		return "<Tab>"
 	end
-end, { expr = true })
+end, { expr = true, silent = true })
+
+map("s", "n", "n")
+map("s", "e", "e")
+map("s", "i", "i")

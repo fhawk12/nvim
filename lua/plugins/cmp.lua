@@ -5,6 +5,13 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
+		{
+			"garymjr/nvim-snippets",
+			dependencies = { "rafamadriz/friendly-snippets" },
+			opts = {
+				friendly_snippets = true,
+			},
+		},
 		{ "Snikimonkd/cmp-go-pkgs" },
 		{ "Saecki/crates.nvim" }, -- config in crates.lua
 	},
@@ -20,6 +27,7 @@ return {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 			},
+			experimental = { ghost_text = true },
 			mapping = cmp.mapping.preset.insert({
 				["<cr>"] = cmp.mapping.confirm({ select = true }),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),

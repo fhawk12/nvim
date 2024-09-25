@@ -9,6 +9,9 @@ return {
 
 			rust = { "rustfmt", lsp_format = "fallback" },
 
+			c = { "clang_format", lsp_format = "fallback" },
+			cpp = { "clang_format", lsp_format = "fallback" },
+
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
 			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -23,8 +26,6 @@ return {
 			gomod = { lsp_format = "fallback" },
 			gowork = { lsp_format = "fallback" },
 			gotmpl = { lsp_format = "fallback" },
-
-			["*"] = { "codespell" },
 		},
 	},
 }

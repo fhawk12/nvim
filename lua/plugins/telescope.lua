@@ -3,6 +3,7 @@ return {
 	tag = "0.1.8",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
