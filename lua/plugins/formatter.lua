@@ -9,6 +9,11 @@ return {
 
 			rust = { "rustfmt", lsp_format = "fallback" },
 
+			go = { lsp_format = "fallback" },
+			gomod = { lsp_format = "fallback" },
+			gowork = { lsp_format = "fallback" },
+			gotmpl = { lsp_format = "fallback" },
+
 			c = { "clang_format", lsp_format = "fallback" },
 			cpp = { "clang_format", lsp_format = "fallback" },
 
@@ -17,15 +22,13 @@ return {
 			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 
+			json = { "prettierd", "prettier", stop_after_first = true },
+			toml = { "prettierd", "prettier", stop_after_first = true },
+
 			html = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
 			scss = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "prettierd", "prettier", stop_after_first = true },
-
-			go = { lsp_format = "fallback" },
-			gomod = { lsp_format = "fallback" },
-			gowork = { lsp_format = "fallback" },
-			gotmpl = { lsp_format = "fallback" },
 		},
 	},
 }

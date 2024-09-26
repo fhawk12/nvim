@@ -5,6 +5,7 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
+		{ "onsails/lspkind.nvim" },
 		{
 			"garymjr/nvim-snippets",
 			dependencies = { "rafamadriz/friendly-snippets" },
@@ -24,8 +25,8 @@ return {
 				end,
 			},
 			window = {
-				-- completion = cmp.config.window.bordered(),
-				-- documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			experimental = { ghost_text = true },
 			mapping = cmp.mapping.preset.insert({
@@ -42,20 +43,30 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "snippets" },
 				{ name = "crates" },
 				{ name = "go_pkgs" },
 			}),
 			formatting = {
+				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
-					vim_item.kind = string.format("%s", vim_item.kind)
-					vim_item.menu = ({
-						buffer = "[Buffer]",
-						nvim_lsp = "[LSP]",
-						path = "[Path]",
-						crates = "[Crates]",
-						go_pkgs = "[pkgs]",
-					})[entry.source.name]
-					return vim_item
+					local lspkind = require("lspkind")
+
+					local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+					local strings = vim.split(kind.kind, "%s", { trimempty = true })
+					kind.kind = " " .. (strings[1] or "") .. " "
+					kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+					if vim.tbl_contains({ "path" }, entry.source.name) then
+						local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
+						if icon then
+							vim_item.kind = " " .. icon
+							vim_item.kind_hl_group = hl_group
+							return vim_item
+						end
+					end
+
+					return kind
 				end,
 			},
 		})

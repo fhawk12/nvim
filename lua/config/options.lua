@@ -36,8 +36,5 @@ vim.opt.undofile = true
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
 
-vim.opt.pumblend = 10
-vim.opt.pumheight = 10
-
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3

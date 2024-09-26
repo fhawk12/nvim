@@ -88,7 +88,7 @@ map("n", "<space>vh", require("utils.ts-utils").goto_function_head)
 map("n", "<space>ve", require("utils.ts-utils").goto_function_end)
 
 -- Snippet
-vim.keymap.set({ "i", "s" }, "<Tab>", function()
+map({ "i", "s" }, "<Tab>", function()
 	if vim.snippet.active({ direction = 1 }) then
 		return "<cmd>lua vim.snippet.jump(1)<cr>"
 	else
@@ -96,7 +96,7 @@ vim.keymap.set({ "i", "s" }, "<Tab>", function()
 	end
 end, { expr = true, silent = true })
 
-vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+map({ "i", "s" }, "<S-Tab>", function()
 	if vim.snippet.active({ direction = -1 }) then
 		return "<cmd>lua vim.snippet.jump(-1)<cr>"
 	else
@@ -104,6 +104,7 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
 	end
 end, { expr = true, silent = true })
 
+map("s", "t", "t")
 map("s", "n", "n")
 map("s", "e", "e")
 map("s", "i", "i")

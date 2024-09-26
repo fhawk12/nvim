@@ -1,10 +1,10 @@
 return {
 	{
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	{
 		"sainnhe/gruvbox-material",
 		config = function()
@@ -20,6 +20,7 @@ return {
 		priority = 1000,
 		config = function()
 			local lackluster = require("lackluster")
+
 			lackluster.setup({
 				tweak_syntax = {
 					comment = lackluster.color.gray5,
@@ -29,6 +30,11 @@ return {
 					normal = "none", -- transparent
 				},
 				tweak_highlight = {
+					FloatBorder = {
+						overwrite = true,
+						fg = lackluster.color.gray5,
+						bg = "NONE",
+					},
 					["@keyword"] = {
 						overwrite = true,
 						bold = false,
@@ -43,6 +49,7 @@ return {
 					},
 				},
 			})
+
 			vim.cmd.colorscheme("lackluster-hack")
 		end,
 	},
