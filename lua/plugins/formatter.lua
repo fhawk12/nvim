@@ -29,6 +29,10 @@ return {
 			css = { "prettierd", "prettier", stop_after_first = true },
 			scss = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "prettierd", "prettier", stop_after_first = true },
+
+			bash = { "shfmt" },
+			sh = { "shfmt" },
+			zsh = { "shfmt" },
 		},
 	},
 }

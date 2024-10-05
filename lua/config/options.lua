@@ -37,4 +37,4 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
 
 vim.opt.cmdheight = 1
-vim.opt.laststatus = 3
+vim.opt.laststatus = 0

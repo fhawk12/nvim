@@ -10,7 +10,7 @@ return {
 		workspaces = {
 			{
 				name = "main",
-				path = "~/Notes",
+				path = "~/notes",
 			},
 		},
 		mappings = {

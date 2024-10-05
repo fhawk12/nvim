@@ -1,4 +1,15 @@
 return {
+	-- Lazy
+	{
+		"vague2k/vague.nvim",
+		config = function()
+			require("vague").setup({
+				transparent = false,
+			})
+
+			-- vim.cmd.colorscheme("vague")
+		end,
+	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,

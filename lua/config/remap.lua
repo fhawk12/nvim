@@ -1,3 +1,4 @@
+local func = require("config.function")
 local map = vim.keymap.set
 
 -- Up/down/left/right
@@ -81,11 +82,10 @@ map("t", "<C-[>", "<C-\\><C-n>")
 -- Cancel highlight
 map("n", "<Esc>", "<cmd>noh<cr>")
 
-map("n", "<space>y", require("utils.toggle").bool)
-map({ "n", "v" }, "<space>i", require("utils.toggle").comment)
-map("n", "<space>vv", require("utils.ts-utils").select_function)
-map("n", "<space>vh", require("utils.ts-utils").goto_function_head)
-map("n", "<space>ve", require("utils.ts-utils").goto_function_end)
+-- Custom Functions
+map("n", "<space>y", func.toggle_bool)
+map("n", "<space>cn", func.create_file)
+map({ "n", "v" }, "<space>i", func.comment)
 
 -- Snippet
 map({ "i", "s" }, "<Tab>", function()
@@ -104,7 +104,9 @@ map({ "i", "s" }, "<S-Tab>", function()
 	end
 end, { expr = true, silent = true })
 
+-- Select Mode
 map("s", "t", "t")
 map("s", "n", "n")
 map("s", "e", "e")
 map("s", "i", "i")
+map("s", "f", "f")
