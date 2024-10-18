@@ -61,7 +61,7 @@ return {
 				},
 			})
 
-			vim.cmd.colorscheme("lackluster-hack")
+			-- vim.cmd.colorscheme("lackluster-hack")
 		end,
 	},
 	{
@@ -98,7 +98,7 @@ return {
 				},
 			})
 
-			-- vim.cmd("colorscheme rose-pine")
+			vim.cmd("colorscheme rose-pine")
 		end,
 	},
 }

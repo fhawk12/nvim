@@ -1,10 +1,10 @@
 return {
 	"xeluxee/competitest.nvim",
 	keys = {
-		{ ",a", "<cmd>CompetiTest receive testcases<cr>" },
-		{ ",s", "<cmd>CompetiTest show_ui<cr>" },
-		{ ",r", "<cmd>CompetiTest run<cr>" },
-		{ ",d", "<cmd>CompetiTest delete_testcase 0<cr>" },
+		{ "<leader>ca", "<cmd>CompetiTest receive testcases<cr>" },
+		{ "<leader>cs", "<cmd>CompetiTest show_ui<cr>" },
+		{ "<leader>cr", "<cmd>CompetiTest run<cr>" },
+		{ "<leader>cd", "<cmd>CompetiTest delete_testcase 0<cr>" },
 	},
 	config = function()
 		require("competitest").setup({

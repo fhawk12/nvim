@@ -1,5 +1,6 @@
-local func = require("config.function")
+vim.g.mapleader = ","
 local map = vim.keymap.set
+local func = require("config.function")
 
 -- Up/down/left/right
 -- map({ "n", "v", "o" }, "h", "h")
@@ -43,8 +44,7 @@ map({ "n", "v" }, "F", "E")
 -- Insert Mode
 map({ "n", "v", "o" }, "t", "i")
 map({ "n", "v", "o" }, "T", "I")
-map("i", "<C-i>", "<Right>")
-map("i", "<tab>", "<tab>")
+map("i", "<C-t>", "<Right>")
 map("i", "<C-h>", "<Left>")
 
 -- Next/previous

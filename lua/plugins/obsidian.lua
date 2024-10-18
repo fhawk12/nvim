@@ -7,6 +7,9 @@ return {
 	ft = "markdown",
 	opts = {
 		disable_frontmatter = true,
+		ui = {
+			enable = false,
+		},
 		workspaces = {
 			{
 				name = "main",

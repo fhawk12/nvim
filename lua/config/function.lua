@@ -3,6 +3,10 @@ local M = {}
 M.create_file = function()
 	local filename = vim.fn.input("Enter file name: ")
 	if filename ~= "" then
+		local dir = vim.fn.fnamemodify(filename, ":h")
+		if vim.fn.isdirectory(dir) == 0 then
+			vim.fn.mkdir(dir, "p")
+		end
 		vim.cmd("edit " .. filename)
 		vim.cmd("write")
 	end

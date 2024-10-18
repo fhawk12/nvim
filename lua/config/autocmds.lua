@@ -28,7 +28,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- Auto enter insert mode when I open a terminal
 vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function ()
-    vim.cmd("startinsert")
-  end
+	callback = function()
+		vim.cmd("startinsert")
+	end,
+})
+
+-- Wrap markdown filetype
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*.md",
+	callback = function()
+		vim.o.wrap = true
+	end,
 })

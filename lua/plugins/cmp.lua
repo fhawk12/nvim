@@ -25,8 +25,12 @@ return {
 				end,
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = vim.tbl_extend("force", cmp.config.window.bordered(), {
+					winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
+				documentation = vim.tbl_extend("force", cmp.config.window.bordered(), {
+					winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
 			},
 			experimental = { ghost_text = true },
 			mapping = cmp.mapping.preset.insert({

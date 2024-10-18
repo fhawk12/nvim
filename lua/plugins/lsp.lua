@@ -4,7 +4,6 @@ return {
 		{ "neovim/nvim-lspconfig" },
 		{ "williamboman/mason.nvim" },
 		{ "stevearc/dressing.nvim", opts = {} },
-		{ "j-hui/fidget.nvim", opts = {} },
 		{
 			"nvimdev/lspsaga.nvim",
 			opts = {
@@ -30,7 +29,7 @@ return {
 			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
 			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
 			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
-			vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
+			-- vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
 			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 			vim.keymap.set("n", "<space>sr", "<cmd>Lspsaga finder<cr>", opts)
