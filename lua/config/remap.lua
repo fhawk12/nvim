@@ -31,8 +31,8 @@ map("v", "N", ":m '>+1<CR>gv=gv")
 map("v", "E", ":m '<-2<CR>gv=gv")
 
 -- Buffer
-map("n", "H", ":bn<cr>")
-map("n", "I", ":bp<cr>")
+map("n", "H", "<cmd>bn<cr>")
+map("n", "I", "<cmd>bp<cr>")
 
 -- Undo
 map("n", "U", "<C-r>")
@@ -44,6 +44,8 @@ map({ "n", "v" }, "F", "E")
 -- Insert Mode
 map({ "n", "v", "o" }, "t", "i")
 map({ "n", "v", "o" }, "T", "I")
+map("i", "<C-k>", "<C-n>")
+map("i", "<C-;>", "<C-p>")
 map("i", "<C-t>", "<Right>")
 map("i", "<C-h>", "<Left>")
 

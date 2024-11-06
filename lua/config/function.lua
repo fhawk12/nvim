@@ -1,14 +1,21 @@
 local M = {}
 
 M.create_file = function()
-	local filename = vim.fn.input("Enter file name: ")
+  local current_dir = vim.fn.getcwd()
+  local filename = vim.fn.input("Create file: ", current_dir .. "/")
+
 	if filename ~= "" then
-		local dir = vim.fn.fnamemodify(filename, ":h")
+		local full_path = vim.fn.fnamemodify(filename, ":p")
+		local dir = vim.fn.fnamemodify(full_path, ":h")
+
 		if vim.fn.isdirectory(dir) == 0 then
 			vim.fn.mkdir(dir, "p")
 		end
+
 		vim.cmd("edit " .. filename)
 		vim.cmd("write")
+
+    vim.notify("File created: " .. full_path)
 	end
 end
 

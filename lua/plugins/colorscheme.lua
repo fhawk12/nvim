@@ -1,28 +1,43 @@
 return {
-	-- Lazy
 	{
-		"vague2k/vague.nvim",
+		"rose-pine/neovim",
+		name = "rose-pine",
 		config = function()
-			require("vague").setup({
-				transparent = false,
+			require("rose-pine").setup({
+				variant = "moon", -- auto, main, moon, or dawn
+				dark_variant = "main", -- main, moon, or dawn
+				dim_inactive_windows = false,
+				extend_background_behind_borders = false,
+
+				enable = {
+					terminal = true,
+					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+					migrations = true, -- Handle deprecated options automatically
+				},
+
+				styles = {
+					bold = false,
+					italic = false,
+					transparency = true,
+				},
+
+				highlight_groups = {
+					StatusLine = { fg = "love", bg = "love", blend = 10 },
+					StatusLineNC = { fg = "subtle", bg = "surface" },
+
+					PmenuExtra = { bg = "None" },
+					TreesitterContext = { bg = "base" },
+
+					TelescopeBorder = { fg = "highlight_high", bg = "none" },
+					TelescopeNormal = { bg = "None" },
+					TelescopePromptNormal = { bg = "None" },
+					TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+					TelescopeSelection = { fg = "text", bg = "base" },
+					TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+				},
 			})
 
-			-- vim.cmd.colorscheme("vague")
-		end,
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
-		"sainnhe/gruvbox-material",
-		config = function()
-			vim.g.gruvbox_material_background = "soft"
-			vim.g.gruvbox_material_better_performance = 1
-
-			-- vim.cmd.colorscheme("gruvbox-material")
+			vim.cmd("colorscheme rose-pine")
 		end,
 	},
 	{
@@ -37,8 +52,8 @@ return {
 					comment = lackluster.color.gray5,
 				},
 				tweak_background = {
-					-- normal = "default", -- main background
-					normal = "none", -- transparent
+					normal = "default", -- main background
+					-- normal = "none", -- transparent
 				},
 				tweak_highlight = {
 					FloatBorder = {
@@ -65,40 +80,18 @@ return {
 		end,
 	},
 	{
-		"sainnhe/everforest",
-		config = function()
-			vim.g.everforest_background = "soft"
-			-- vim.cmd("colorscheme everforest")
-		end,
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
 	},
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
+		"sainnhe/gruvbox-material",
 		config = function()
-			require("rose-pine").setup({
-				variant = "moon", -- auto, main, moon, or dawn
-				dark_variant = "main", -- main, moon, or dawn
-				dim_inactive_windows = false,
-				extend_background_behind_borders = false,
+			vim.g.gruvbox_material_background = "soft"
+			vim.g.gruvbox_material_better_performance = 1
 
-				enable = {
-					terminal = true,
-					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-					migrations = true, -- Handle deprecated options automatically
-				},
-
-				styles = {
-					bold = false,
-					italic = false,
-					transparency = true,
-				},
-
-				highlight_groups = {
-					PmenuExtra = { bg = "None" },
-				},
-			})
-
-			vim.cmd("colorscheme rose-pine")
+			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 }

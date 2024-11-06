@@ -11,6 +11,7 @@ return {
 					enable = false,
 				},
 				outline = {
+          layout = "float",
 					keys = {
 						jump = "<cr>",
 					},
@@ -29,9 +30,8 @@ return {
 			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
 			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
 			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
-			-- vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
-			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1, float=true})<cr>", opts)
+			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<cr>", opts)
 			vim.keymap.set("n", "<space>sr", "<cmd>Lspsaga finder<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
@@ -46,10 +46,15 @@ return {
 			"clangd",
 			"rust_analyzer",
 			"ts_ls",
+			"gopls",
 			"lua_ls",
 			"cssls",
 			"css_variables",
 		}
+
+		local nvim_lsp = require("lspconfig")
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = {}
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
@@ -59,14 +64,11 @@ return {
 				function(server_name)
 					require("lspconfig")[server_name].setup({
 						on_attach = on_attach,
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						capabilities = capabilities,
 					})
 				end,
 			},
 		})
-
-		local nvim_lsp = require("lspconfig")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		nvim_lsp.lua_ls.setup({
 			on_attach = on_attach,
