@@ -37,6 +37,9 @@ map("n", "I", "<cmd>bp<cr>")
 -- Undo
 map("n", "U", "<C-r>")
 
+-- undo ctrl-o
+map("n", "<C-S-o>", "<C-i>")
+
 -- End of word/Word
 map({ "n", "v" }, "f", "e")
 map({ "n", "v" }, "F", "E")
@@ -112,3 +115,4 @@ map("s", "n", "n")
 map("s", "e", "e")
 map("s", "i", "i")
 map("s", "f", "f")
+map("s", "k", "k")

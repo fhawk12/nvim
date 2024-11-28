@@ -1,6 +1,6 @@
 return {
 	"Saecki/crates.nvim",
-  enabled = false,
+  enabled = true,
 	event = { "BufRead Cargo.toml" },
 	opts = {
 		completion = {

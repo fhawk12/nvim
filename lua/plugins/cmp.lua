@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-  enabled = false,
+	enabled = true,
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -35,8 +35,8 @@ return {
 			},
 			experimental = { ghost_text = true },
 			mapping = cmp.mapping.preset.insert({
-				["<cr>"] = cmp.mapping.confirm({ select = true }),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<cr>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+				["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 
 				["<C-k>"] = cmp.mapping.select_next_item(),
 				["<C-;>"] = cmp.mapping.select_prev_item(),
