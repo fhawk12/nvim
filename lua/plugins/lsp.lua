@@ -11,7 +11,7 @@ return {
 					enable = false,
 				},
 				outline = {
-          layout = "float",
+					layout = "float",
 					keys = {
 						jump = "<cr>",
 					},
@@ -26,6 +26,7 @@ return {
 		local on_attach = function(_, bufnr)
 			local opts = { buffer = bufnr, noremap = true, silent = true }
 
+			-- vim.keymap.set("", "<space>f", "<cmd>lua vim.lsp.buf.format({async = false, timeout_ms = 10000})<cr>") -- be replaced by conform
 			vim.keymap.set("n", "<space>wi", "<cmd>Lspsaga incoming_calls<cr>", opts)
 			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
 			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
@@ -53,8 +54,11 @@ return {
 		}
 
 		local nvim_lsp = require("lspconfig")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		-- local capabilities = {}
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = {}
+		if vim.g.complete then
+			capabilities = require("cmp_nvim_lsp").default_capabilities()
+		end
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({

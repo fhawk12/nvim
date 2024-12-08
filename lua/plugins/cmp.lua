@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-	enabled = true,
+	enabled = vim.g.complete,
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -33,7 +33,7 @@ return {
 					winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 				}),
 			},
-			experimental = { ghost_text = true },
+			experimental = { ghost_text = false },
 			mapping = cmp.mapping.preset.insert({
 				["<cr>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 				["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
