@@ -33,15 +33,14 @@ return {
 			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
 			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1, float=true})<cr>", opts)
 			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<cr>", opts)
-			vim.keymap.set("n", "<space>sr", "<cmd>Lspsaga finder<cr>", opts)
+			vim.keymap.set("n", "<space>rr", "<cmd>Lspsaga finder<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
-			vim.keymap.set("n", "<space>r", "<cmd>Lspsaga rename<cr>", opts)
+			vim.keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<cr>", opts)
 			vim.keymap.set("n", "<space>R", "<cmd>Lspsaga project_replace<cr>", opts)
 			vim.keymap.set("n", "<space>;", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 			vim.keymap.set("n", "<space>x", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
 		end
-		vim.keymap.set({ "n", "t" }, "<C-,>", "<cmd>Lspsaga term_toggle<cr>")
 
 		local server_names = {
 			"clangd",
@@ -54,11 +53,7 @@ return {
 		}
 
 		local nvim_lsp = require("lspconfig")
-		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local capabilities = {}
-		if vim.g.complete then
-			capabilities = require("cmp_nvim_lsp").default_capabilities()
-		end
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({

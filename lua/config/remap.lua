@@ -1,6 +1,5 @@
 vim.g.mapleader = ","
 local map = vim.keymap.set
-local func = require("config.function")
 
 -- Up/down/left/right
 -- map({ "n", "v", "o" }, "h", "h")
@@ -88,9 +87,11 @@ map("t", "<C-[>", "<C-\\><C-n>")
 map("n", "<Esc>", "<cmd>noh<cr>")
 
 -- Custom Functions
-map("n", "<space>y", func.toggle_bool)
-map("n", "<space>cn", func.create_file)
-map({ "n", "v" }, "<space>i", func.comment)
+map("n", "<space>y", Toggle_bool)
+map("n", "<space>cn", Create_file)
+map({ "n", "v" }, "<space>i", Comment)
+map("n", "<leader>rn", Rename_file)
+map({ "n", "t" }, "<C-,>", Toggle_terminal)
 
 -- Snippet
 map({ "i", "s" }, "<Tab>", function()

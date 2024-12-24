@@ -37,5 +37,11 @@ return {
 		vim.keymap.set("n", "<space>/", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end)
+
+		vim.keymap.set("n", "<leader>p", function()
+			builtin.find_files({
+				cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+			})
+		end)
 	end,
 }
