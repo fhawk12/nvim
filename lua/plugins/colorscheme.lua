@@ -29,13 +29,6 @@ return {
 
 					PmenuExtra = { bg = "None" },
 					TreesitterContext = { bg = "base" },
-
-					TelescopeBorder = { fg = "highlight_high", bg = "none" },
-					TelescopeNormal = { bg = "None" },
-					TelescopePromptNormal = { bg = "None" },
-					TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-					TelescopeSelection = { fg = "text", bg = "base" },
-					TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 				},
 			})
 

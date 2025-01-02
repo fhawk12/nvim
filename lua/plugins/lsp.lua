@@ -31,8 +31,8 @@ return {
 			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
 			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
 			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
-			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1, float=true})<cr>", opts)
-			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<cr>", opts)
+			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 			vim.keymap.set("n", "<space>rr", "<cmd>Lspsaga finder<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
@@ -41,11 +41,13 @@ return {
 			vim.keymap.set("n", "<space>;", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 			vim.keymap.set("n", "<space>x", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
 		end
+		-- vim.keymap.set({ "n", "t" }, "<C-/>", "<cmd>Lspsaga term_toggle<cr>") -- replaced by snacks
 
 		local server_names = {
 			"clangd",
 			"rust_analyzer",
 			"ts_ls",
+			"denols",
 			"gopls",
 			"lua_ls",
 			"cssls",
@@ -94,6 +96,18 @@ return {
 					},
 				},
 			},
+		})
+
+		nvim_lsp.denols.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+		})
+		nvim_lsp.ts_ls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = nvim_lsp.util.root_pattern("package.json"),
+			single_file_support = false,
 		})
 	end,
 }

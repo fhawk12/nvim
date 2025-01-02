@@ -88,10 +88,8 @@ map("n", "<Esc>", "<cmd>noh<cr>")
 
 -- Custom Functions
 map("n", "<space>y", Toggle_bool)
-map("n", "<space>cn", Create_file)
 map({ "n", "v" }, "<space>i", Comment)
 map("n", "<leader>rn", Rename_file)
-map({ "n", "t" }, "<C-,>", Toggle_terminal)
 
 -- Snippet
 map({ "i", "s" }, "<Tab>", function()
