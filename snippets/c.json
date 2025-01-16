@@ -1,0 +1,8 @@
+{
+    "commandBlock": {
+        "prefix": "cm",
+        "body": [
+            "/*  ${0}  */"
+        ]
+    }
+}

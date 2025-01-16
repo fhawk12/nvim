@@ -56,8 +56,8 @@ map({ "n", "v" }, "k", "n")
 map({ "n", "v" }, "K", "N")
 
 -- Scroll
-map({ "n", "v" }, "<C-s>", "<C-d>zz")
-map({ "n", "v" }, "<C-f>", "<C-u>zz")
+map({ "n", "v" }, "<C-s>", "<C-d>")
+map({ "n", "v" }, "<C-f>", "<C-u>")
 
 -- Better up/down
 map({ "n", "x" }, "n", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

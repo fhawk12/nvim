@@ -17,7 +17,7 @@ return {
 
 				styles = {
 					bold = false,
-					italic = true,
+					italic = false,
 					transparency = true,
 				},
 
@@ -41,35 +41,7 @@ return {
 		priority = 1000,
 		config = function()
 			local lackluster = require("lackluster")
-
-			lackluster.setup({
-				tweak_syntax = {
-					comment = lackluster.color.gray5,
-				},
-				tweak_background = {
-					normal = "default", -- main background
-					-- normal = "none", -- transparent
-				},
-				tweak_highlight = {
-					FloatBorder = {
-						overwrite = true,
-						fg = lackluster.color.gray5,
-						bg = "NONE",
-					},
-					["@keyword"] = {
-						overwrite = true,
-						bold = false,
-						italic = true,
-						fg = lackluster.color.gray6,
-					},
-					["@keyword.return"] = {
-						overwrite = true,
-						bold = false,
-						italic = true,
-						fg = lackluster.color.green,
-					},
-				},
-			})
+			lackluster.setup({})
 
 			-- vim.cmd.colorscheme("lackluster-hack")
 		end,

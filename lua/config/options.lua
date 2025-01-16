@@ -31,6 +31,7 @@ vim.opt.conceallevel = 0
 vim.o.foldlevelstart = 99
 
 vim.o.autoread = true
+vim.o.autowrite = true
 
 vim.opt.undofile = true
 vim.opt.completeopt = "menu,menuone,noselect"

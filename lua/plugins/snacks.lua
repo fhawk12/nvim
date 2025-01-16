@@ -3,18 +3,25 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    terminal = { win = { style = "float", border = "rounded" }},
-    zen = {},
-    scope = {},
-    bigfile = { enabled = true },
-    dashboard = { enabled = true },
-    notifier = {
-      enabled = true,
-      timeout = 3000,
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-k>"] = { "list_down", mode = { "i", "n" } },
+            ["<c-;>"] = { "list_up", mode = { "i", "n" } },
+          }
+        }
+      },
     },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    -- words = { enabled = false },
+    zen = { toggles = { dim = false }},
+    input = {},
+    bigfile = {},
+    scroll = {},
+    dashboard = { enabled = true },
+    notifier = {},
+    quickfile = {},
+    statuscolumn = {},
+    indent= {},
     styles = {
       notification = {
         wo = { wrap = true } -- Wrap notifications
@@ -22,8 +29,6 @@ return {
     }
   },
   keys = {
-    { "<space>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<space>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<space>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<space>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<space>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
@@ -31,9 +36,44 @@ return {
     { "<space>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
     { "<space>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<space>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
-    { "<space>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<space>z",  function() Snacks.zen() end, desc = "Toggle Zen-mode" },
-    { "<C-\\>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+
+    { "<space>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<space>/", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<space>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<space>se", function() Snacks.picker.files() end, desc = "Find Files" },
+    -- find
+    { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<space>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    { "<space>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+    { "<space>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+    { "<space>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+    -- git
+    { "<space>gc", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<space>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
+    -- Grep
+    { "<space>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    { "<space>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+    { "<space>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<space>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    -- search
+    { "<space>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
+    { "<space>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<space>sC", function() Snacks.picker.commands() end, desc = "Commands" },
+    { "<space>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<space>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
+    { "<space>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
+    { "<space>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
+    { "<space>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<space>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
+    { "<space>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
+    { "<space>sm", function() Snacks.picker.marks() end, desc = "Marks" },
+    { "<space>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+    { "<space>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+    { "<space>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    { "<space>qp", function() Snacks.picker.projects() end, desc = "Projects" },
+    -- LSP
+    { "<space>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
