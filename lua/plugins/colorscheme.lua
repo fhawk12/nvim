@@ -24,26 +24,11 @@ return {
 				highlight_groups = {
 					["@keyword.return"] = { fg = "love" },
 
-					StatusLine = { fg = "love", bg = "love", blend = 10 },
-					StatusLineNC = { fg = "subtle", bg = "surface" },
-
-					PmenuExtra = { bg = "None" },
 					TreesitterContext = { bg = "base" },
 				},
 			})
 
 			vim.cmd("colorscheme rose-pine")
-		end,
-	},
-	{
-		"slugbyte/lackluster.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			local lackluster = require("lackluster")
-			lackluster.setup({})
-
-			-- vim.cmd.colorscheme("lackluster-hack")
 		end,
 	},
 	{

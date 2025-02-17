@@ -17,12 +17,16 @@ return {
 			c = { "clang_format", lsp_format = "fallback" },
 			cpp = { "clang_format", lsp_format = "fallback" },
 
+			dart = { "dcm", "ast_grep", lsp_format = "fallback" },
+			svelte = { lsp_format = "fallback" },
+
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
 			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 
 			json = { "prettierd", "prettier", stop_after_first = true },
+			jsonc = { "prettierd", "prettier", stop_after_first = true },
 			toml = { "prettierd", "prettier", stop_after_first = true },
 
 			html = { "prettierd", "prettier", stop_after_first = true },

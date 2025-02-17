@@ -8,21 +8,13 @@ return {
 		{
 			"nvimdev/lspsaga.nvim",
 			opts = {
-				symbol_in_winbar = {
-					enable = false,
-				},
+				symbol_in_winbar = { enable = false },
 				outline = {
 					layout = "float",
-					keys = {
-						jump = "<cr>",
-					},
+					keys = { jump = "<cr>" },
 				},
-				lightbulb = {
-					enable = false,
-				},
-				ui = {
-					border = "rounded",
-				},
+				lightbulb = { enable = false },
+				ui = { border = "rounded" },
 			},
 		},
 	},
@@ -42,9 +34,7 @@ return {
 			vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<cr>", opts)
 			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
 			vim.keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<cr>", opts)
-			vim.keymap.set("n", "<space>R", "<cmd>Lspsaga project_replace<cr>", opts)
-			vim.keymap.set("n", "<space>;", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-			vim.keymap.set("n", "<space>x", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
+			vim.keymap.set("n", "<space>;", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 		end
 		vim.keymap.set({ "n", "t" }, "<C-\\>", "<cmd>Lspsaga term_toggle<cr>") -- replaced by snacks
 
@@ -53,11 +43,15 @@ return {
 			"rust_analyzer",
 			"ts_ls",
 			"denols",
+			"svelte",
+			"jsonls",
 			"zls",
 			"gopls",
 			"lua_ls",
 			"cssls",
+			"cssmodules_ls",
 			"css_variables",
+			"tailwindcss",
 		}
 
 		local nvim_lsp = require("lspconfig")
@@ -75,6 +69,19 @@ return {
 					})
 				end,
 			},
+		})
+
+		nvim_lsp.denols.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+		})
+
+		nvim_lsp.ts_ls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = nvim_lsp.util.root_pattern("package.json"),
+			single_file_support = false,
 		})
 
 		nvim_lsp.lua_ls.setup({
