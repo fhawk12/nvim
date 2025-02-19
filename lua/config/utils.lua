@@ -1,5 +1,3 @@
-require("config.window")
-
 Toggle_bool = function()
 	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 	local word = vim.fn.expand("<cword>")

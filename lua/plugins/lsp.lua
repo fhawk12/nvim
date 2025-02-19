@@ -5,38 +5,18 @@ return {
 		{ "neovim/nvim-lspconfig" },
 		{ "williamboman/mason.nvim" },
 		{ "stevearc/dressing.nvim", opts = {} },
-		{
-			"nvimdev/lspsaga.nvim",
-			opts = {
-				symbol_in_winbar = { enable = false },
-				outline = {
-					layout = "float",
-					keys = { jump = "<cr>" },
-				},
-				lightbulb = { enable = false },
-				ui = { border = "rounded" },
-			},
-		},
 	},
 	config = function()
 		local on_attach = function(_, bufnr)
 			local opts = { buffer = bufnr, noremap = true, silent = true }
 
-			-- vim.keymap.set("", "<space>f", "<cmd>lua vim.lsp.buf.format({async = false, timeout_ms = 10000})<cr>") -- be replaced by conform
-			vim.keymap.set("n", "<space>wi", "<cmd>Lspsaga incoming_calls<cr>", opts)
-			vim.keymap.set("n", "<space>wo", "<cmd>Lspsaga outgoing_calls<cr>", opts)
-			vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", opts)
-			vim.keymap.set("n", "<space>q", "<cmd>Lspsaga peek_definition<cr>", opts)
+			vim.keymap.set("n", "ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 			vim.keymap.set("n", "E", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-			vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<cr>", opts)
-			vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<cr>", opts)
-			vim.keymap.set("n", "<space>o", "<cmd>Lspsaga outline<cr>", opts)
-			vim.keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<cr>", opts)
+			vim.keymap.set("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 			vim.keymap.set("n", "<space>;", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 		end
-		vim.keymap.set({ "n", "t" }, "<C-\\>", "<cmd>Lspsaga term_toggle<cr>") -- replaced by snacks
 
 		local server_names = {
 			"clangd",

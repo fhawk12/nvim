@@ -6,7 +6,7 @@ local state = {
 }
 Create_floating_window = function(opts)
 	opts = opts or {}
-	local width = opts.width or math.floor(vim.o.columns * 0.8)
+	local width = opts.width or math.floor(vim.o.columns * 0.7)
 	local height = opts.height or math.floor(vim.o.lines * 0.8)
 
 	local col = math.floor((vim.o.columns - width) / 2)
@@ -27,6 +27,8 @@ Create_floating_window = function(opts)
 		row = row,
 		style = "minimal",
 		border = "rounded",
+		title = opts.title or "",
+		title_pos = opts.title_pos or "left",
 	})
 
 	return { buf = buf, win = win }
@@ -37,8 +39,8 @@ Toggle_terminal = function()
 		state.floating = Create_floating_window({ buf = state.floating.buf })
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
-            vim.cmd("startinsert")
 		end
+		vim.cmd("startinsert")
 	else
 		vim.api.nvim_win_hide(state.floating.win)
 	end

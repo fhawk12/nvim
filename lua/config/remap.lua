@@ -77,7 +77,7 @@ map("n", "<C-e>", "<C-w>k", { remap = true })
 map("n", "<C-i>", "<C-w>l", { remap = true })
 
 -- Explore
-map("n", "<space>e", vim.cmd.Ex)
+-- map("n", "<space>e", vim.cmd.Ex) -- replaced by snacks.picker.explorer()
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>")
@@ -90,6 +90,7 @@ map("n", "<Esc>", "<cmd>noh<cr>")
 map("n", "<space>y", Toggle_bool)
 map({ "n", "v" }, "<space>i", Comment)
 map("n", "<leader>rn", Rename_file)
+map({ "n", "t" }, "<C-\\>", "<cmd>lua Toggle_terminal()<cr>")
 
 -- Snippet
 map({ "i", "s" }, "<Tab>", function()

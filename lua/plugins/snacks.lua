@@ -14,11 +14,11 @@ return {
       },
     },
     zen = { toggles = { dim = false }},
-    input = {},
     bigfile = {},
     dashboard = {},
     quickfile = {},
     statuscolumn = {},
+    terminal = {},
     styles = {
       notification = {
         wo = { wrap = true } -- Wrap notifications
@@ -38,7 +38,6 @@ return {
     { "<space>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<space>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<space>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-    { "<space>se", function() Snacks.picker.files() end, desc = "Find Files" },
     -- find
     { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<space>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -63,7 +62,9 @@ return {
     { "<space>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
     { "<space>qp", function() Snacks.picker.projects() end, desc = "Projects" },
     -- LSP
-    { "<space>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "<space>gr", function() Snacks.picker.lsp_references() end, desc = "LSP References" },
+    -- Explorer
+    { "<space>e",  function() Snacks.picker.explorer({ win = { list = { keys = { ["-"]="explorer_up"} } } }) end, desc = "Open Explorer" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
