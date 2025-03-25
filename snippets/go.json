@@ -1,0 +1,10 @@
+{
+    "if error": {
+        "prefix": "ife",
+        "body": [
+            "if err != nil {",
+            "   return err",
+            "}"
+        ]
+    }
+}
