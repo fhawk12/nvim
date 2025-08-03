@@ -39,6 +39,7 @@ vim.keymap.set("n", "<space>bd", "<cmd>bd<cr>")
 
 -- Scroll
 vim.keymap.set("n", "<C-s>", "<C-d>")
+vim.keymap.set("n", "<C-f>", "<nop>")
 
 -- Search
 vim.keymap.set("n", "k", "n")

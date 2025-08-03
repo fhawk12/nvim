@@ -60,40 +60,40 @@ return {
 				end)
 
 				-- Actions
-				map("n", "<leader>hs", gitsigns.stage_hunk)
-				map("n", "<leader>hr", gitsigns.reset_hunk)
+				map("n", "<space>hs", gitsigns.stage_hunk)
+				map("n", "<space>hr", gitsigns.reset_hunk)
 
-				map("v", "<leader>hs", function()
+				map("v", "<space>hs", function()
 					gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 				end)
 
-				map("v", "<leader>hr", function()
+				map("v", "<space>hr", function()
 					gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 				end)
 
-				map("n", "<leader>hS", gitsigns.stage_buffer)
-				map("n", "<leader>hR", gitsigns.reset_buffer)
-				map("n", "<leader>hp", gitsigns.preview_hunk)
-				map("n", "<leader>hi", gitsigns.preview_hunk_inline)
+				map("n", "<space>hS", gitsigns.stage_buffer)
+				map("n", "<space>hR", gitsigns.reset_buffer)
+				map("n", "<space>hp", gitsigns.preview_hunk)
+				map("n", "<space>hi", gitsigns.preview_hunk_inline)
 
-				map("n", "<leader>hb", function()
+				map("n", "<space>hb", function()
 					gitsigns.blame_line({ full = true })
 				end)
 
-				map("n", "<leader>hd", gitsigns.diffthis)
+				map("n", "<space>hd", gitsigns.diffthis)
 
-				map("n", "<leader>hD", function()
+				map("n", "<space>hD", function()
 					gitsigns.diffthis("~")
 				end)
 
-				map("n", "<leader>hQ", function()
+				map("n", "<space>hQ", function()
 					gitsigns.setqflist("all")
 				end)
-				map("n", "<leader>hq", gitsigns.setqflist)
+				map("n", "<space>hq", gitsigns.setqflist)
 
 				-- Toggles
-				map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-				map("n", "<leader>tw", gitsigns.toggle_word_diff)
+				map("n", "<space>tb", gitsigns.toggle_current_line_blame)
+				map("n", "<space>tw", gitsigns.toggle_word_diff)
 
 				-- Text object
 				map({ "o", "x" }, "ih", gitsigns.select_hunk)
