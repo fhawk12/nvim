@@ -29,7 +29,7 @@ return {
 				},
 				highlight_groups = {},
 			})
-			vim.cmd("colorscheme rose-pine")
+			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 }

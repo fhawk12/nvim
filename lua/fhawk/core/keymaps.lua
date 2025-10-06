@@ -1,3 +1,5 @@
+require("fhawk.core.toggle-terminal")
+
 vim.g.mapleader = ","
 
 -- Colemak
@@ -13,6 +15,9 @@ vim.keymap.set({ "n", "v" }, "f", "e")
 
 -- Text objects
 vim.keymap.set("x", "u", "i")
+
+-- Re-undo
+vim.keymap.set("n", "U", "<C-r>")
 
 -- Better move
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -38,8 +43,8 @@ vim.keymap.set("n", "<S-i>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<space>bd", "<cmd>bd<cr>")
 
 -- Scroll
-vim.keymap.set("n", "<C-s>", "<C-d>")
-vim.keymap.set("n", "<C-f>", "<nop>")
+vim.keymap.set({ "n", "v" }, "<C-s>", "<C-d>")
+vim.keymap.set({ "n", "v" }, "<C-f>", "<nop>")
 
 -- Search
 vim.keymap.set("n", "k", "n")
@@ -50,15 +55,18 @@ vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 vim.keymap.set("n", "<C-S-o>", "<C-i>")
 
 -- Clipboard
-vim.keymap.set({ "n", "v" }, "<space>y", '"*y')
-vim.keymap.set({ "n", "v" }, "<space>p", '"*p')
-vim.keymap.set({ "n", "v" }, "<space>P", '"*P')
+vim.keymap.set("n", "<space>Y", '"+y$')
+vim.keymap.set({ "n", "v" }, "<space>y", '"+y')
+vim.keymap.set({ "n", "v" }, "<space>d", '"+d')
+vim.keymap.set({ "n", "v" }, "<space>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<space>P", '"+P')
 
 -- Insert mode
 vim.keymap.set({ "n", "v", "o", "x" }, "t", "i")
 vim.keymap.set({ "n", "v", "o", "x" }, "T", "I")
 vim.keymap.set("i", "<C-t>", "<Right>")
 vim.keymap.set("i", "<C-h>", "<Left>")
+vim.keymap.set("i", "<C-d>", "<Nop>")
 
 -- LSP
 vim.keymap.set("n", "E", vim.lsp.buf.hover)
@@ -73,6 +81,7 @@ vim.keymap.set({ "n", "v" }, "<space>i", "gcc")
 vim.keymap.set("n", "<space>e", vim.cmd.Ex)
 
 -- Terminal
+vim.keymap.set({ "n", "t" }, "<C-/>", Toggle_terminal)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>")
 

@@ -7,7 +7,6 @@ return {
 	opts = {
 		keymap = {
 			preset = "none",
-			["<C-e>"] = { "show", "show_documentation", "hide_documentation" },
 			["<C-f>"] = { "hide" },
 			["<C-y>"] = { "select_and_accept" },
 
@@ -16,13 +15,12 @@ return {
 			["<C-;>"] = { "select_prev", "fallback_to_mappings" },
 			["<C-k>"] = { "select_next", "fallback_to_mappings" },
 
+			["<C-d>"] = { "show_documentation", "hide_documentation" },
 			["<C-u>"] = { "scroll_documentation_up", "fallback" },
 			["<C-s>"] = { "scroll_documentation_down", "fallback" },
 
 			["<Tab>"] = { "snippet_forward", "fallback" },
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
-
-			["<C-d>"] = { "show_signature", "hide_signature", "fallback" },
 		},
 		appearance = { nerd_font_variant = "mono" },
 		completion = { documentation = { auto_show = false } },

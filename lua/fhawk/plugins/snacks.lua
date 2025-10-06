@@ -26,11 +26,10 @@ return {
         },
       statuscolumn = {enabled = true},
       zen = { enabled = true, toggles = { dim = false } },
-      scroll = { enabled = true }
   },
   keys = {
     -- Pickers & Explorer
-    -- { "<space>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    { "<space>E", function() Snacks.explorer() end, desc = "File Explorer" },
     { "<space>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<space>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<space>ff", function() Snacks.picker.files() end, desc = "Find Files" },
