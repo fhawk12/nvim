@@ -1,6 +1,5 @@
-require("nvim-surround").setup({})
+require("mini.surround").setup({})
 require("nvim-autopairs").setup({})
-require("neogen").setup({})
 require("nvim-ts-autotag").setup({
 	opts = {
 		enable_close = true, -- Auto close tags
@@ -14,6 +13,9 @@ cmp.setup({
 	keymap = { preset = "default" },
 	appearance = {
 		nerd_font_variant = "mono",
+	},
+	completion = {
+		menu = { auto_show_delay_ms = 500 },
 	},
 	sources = {
 		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -33,7 +35,3 @@ cmp.setup({
 		implementation = "rust",
 	},
 })
-
-vim.keymap.set("n", "<leader>gn", function()
-	require("neogen").generate()
-end, { desc = "Generate docs", silent = true, noremap = true })

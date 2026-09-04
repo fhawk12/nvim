@@ -1,3 +1,6 @@
+require("neogit").setup({})
+vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Open Neogit" })
+
 require("gitsigns").setup({
 	on_attach = function(bufnr)
 		local gitsigns = require("gitsigns")
@@ -62,6 +65,6 @@ require("gitsigns").setup({
 		map("n", "<leader>tw", gitsigns.toggle_word_diff)
 
 		-- Text object
-		map({ "o", "x" }, "ih", gitsigns.select_hunk)
+		-- map({ "o", "x" }, "ih", gitsigns.select_hunk)
 	end,
 })

@@ -7,6 +7,8 @@ require("solarized").setup({
 	end,
 })
 require("rose-pine").setup({})
+require("nord").setup({})
 
 -- vim.cmd.colorscheme("solarized")
-vim.cmd.colorscheme("rose-pine-moon")
+-- vim.cmd.colorscheme("rose-pine-moon")
+vim.cmd.colorscheme("nord")

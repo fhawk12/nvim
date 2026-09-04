@@ -102,3 +102,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.cmd("startinsert")
 	end,
 })
+
+-- Auto update quickfix and locallist
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	callback = function()
+		vim.diagnostic.setqflist({ open = false })
+		vim.diagnostic.setloclist({ open = false })
+	end,
+})

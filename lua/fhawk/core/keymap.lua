@@ -6,9 +6,14 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Use <Esc> to exit terminal mode" }) --
 vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart Neovim (:restart)" })
-vim.keymap.set({ "n", "t" }, "<leader>ft", function()
-	require("fhawk.utils.term").toggle()
-end, { desc = "Open floating terminal" })
+
+-- quickfix and locallist
+vim.keymap.set("n", "<leader>dq", function()
+	vim.diagnostic.setqflist()
+end, { desc = "Show diagnostic in quickfix" })
+vim.keymap.set("n", "<leader>dQ", function()
+	vim.diagnostic.setloclist()
+end, { desc = "Show diagnostic in locallist" })
 
 -- Built-in undotree
 vim.keymap.set("n", "<leader>u", function()
@@ -51,10 +56,11 @@ vim.keymap.set({ "n", "x" }, "f", "e", { desc = "Go to end of word" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close Buffer" })
 vim.keymap.set("n", "k", "n", { desc = "Go to next pattern" })
 vim.keymap.set("n", "K", "N", { desc = "Go to previous pattern" })
-vim.keymap.set("n", "U", "<C-r>", { desc = "Re-undo" })
-vim.keymap.set("n", "<C-S-o>", "<C-i>", { desc = "Re-undo" })
-vim.keymap.set({ "n", "x" }, "t", "i", { desc = "Enter Insert Mode" })
-vim.keymap.set({ "n", "x" }, "T", "I", { desc = "Enter Insert Mode" })
+vim.keymap.set("n", "l", "u", { desc = "undo" })
+vim.keymap.set("n", "L", "<C-r>", { desc = "Re-undo" })
+vim.keymap.set("n", "<C-S-o>", "<C-i>", { desc = "Go back from <C-o>" })
+vim.keymap.set({ "n", "x" }, "u", "i", { desc = "Enter Insert Mode" })
+vim.keymap.set({ "n", "x" }, "U", "I", { desc = "Enter Insert Mode" })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set({ "x", "o" }, "u", "i", { desc = "Replace 'i' with 'u'" })
 

@@ -18,6 +18,11 @@ require("tiny-inline-diagnostic").setup({
 		},
 	},
 })
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("fidget").setup({})
+
+vim.lsp.config("harper_ls", {
+	filetypes = { "markdown" },
+})
+vim.lsp.enable("harper_ls")

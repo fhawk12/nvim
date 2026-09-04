@@ -5,65 +5,54 @@ require("fhawk.pack-cmd")
 
 vim.pack.add({
 	-- lsp and treesitter
-	"https://github.com/neovim/nvim-lspconfig", -- enabled
-	"https://github.com/mason-org/mason.nvim", -- enabled
-	"https://github.com/mason-org/mason-lspconfig.nvim", -- enabled
-	"https://github.com/nvim-treesitter/nvim-treesitter", -- enabled
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- enabled
-	"https://github.com/j-hui/fidget.nvim", -- enabled
-
-	-- misc
-	"https://github.com/folke/lazydev.nvim", -- configuration for neovim
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/folke/lazydev.nvim", -- lsp for neovim
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- lsp diagnostic ui
+	"https://github.com/j-hui/fidget.nvim", -- lsp progress message
 
 	-- coding
-	"https://github.com/windwp/nvim-autopairs", -- enabled
-	"https://github.com/windwp/nvim-ts-autotag", -- enabled
-	"https://github.com/kylechui/nvim-surround", -- enabled
-	"https://github.com/Saghen/blink.cmp", -- enabled
-	"https://github.com/saghen/blink.lib", -- denpendency (blink.cmp)
-	"https://github.com/danymat/neogen", -- enabled generate comment
+	"https://github.com/windwp/nvim-autopairs",
+	"https://github.com/windwp/nvim-ts-autotag",
+	"https://github.com/nvim-mini/mini.surround",
+	"https://github.com/Saghen/blink.cmp", -- completion
+	"https://github.com/Saghen/blink.lib", -- dependency (blink)
 
 	-- picker
-	"https://github.com/ibhagwan/fzf-lua", -- enabled
-	"https://github.com/nvim-tree/nvim-web-devicons", -- denpendency (fzf-lua)
+	"https://github.com/dmtrKovalenko/fff",
 
 	-- git
-	"https://github.com/lewis6991/gitsigns.nvim", -- enabled
-
-	-- format
-	"https://github.com/stevearc/conform.nvim", -- enabled
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/NeogitOrg/neogit",
+	"https://github.com/esmuellert/codediff.nvim", -- dependency (neogit)
 
 	-- editor
-	"https://github.com/stevearc/quicker.nvim", -- enabled
-	"https://github.com/NvChad/nvim-colorizer.lua", -- enabled
-	"https://github.com/folke/todo-comments.nvim", -- enabled
-	"https://github.com/nvim-lua/plenary.nvim", -- dependency (todo-comments)
-	"https://github.com/folke/trouble.nvim", -- enabled
-	"https://github.com/nvimdev/dbsession.nvim", -- enabled
-	"https://github.com/stevearc/aerial.nvim", -- enabled
+	"https://github.com/stevearc/quicker.nvim", -- better quickfix
+	"https://github.com/NvChad/nvim-colorizer.lua", -- color
+	"https://github.com/stevearc/aerial.nvim", -- outline
+	"https://github.com/nvim-lualine/lualine.nvim", -- status bar
+	"https://github.com/nvim-tree/nvim-web-devicons", -- dependency (lualine)
+	"https://github.com/akinsho/toggleterm.nvim", -- terminal
 
 	-- rust
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/Saecki/crates.nvim",
 
-	-- AI
-	{ src = "https://www.github.com/olimorris/codecompanion.nvim", version = vim.version.range("^19.0.0") }, -- enabled
-	"https://www.github.com/ravitemer/mcphub.nvim", -- dependency (codecompanion)
-
 	-- theme
 	"https://github.com/maxmx03/solarized.nvim", -- solarized theme
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" }, -- rose-pine theme
+	"https://github.com/gbprod/nord.nvim.git",
 })
 
 require("fhawk.plugins.lsp.mason")
 require("fhawk.plugins.lsp.lspconfig")
 
+require("fhawk.plugins.picker")
+require("fhawk.plugins.editor")
 require("fhawk.plugins.coding")
 require("fhawk.plugins.rust")
-require("fhawk.plugins.editor")
 
 require("fhawk.plugins.treesitter")
 require("fhawk.plugins.git")
-require("fhawk.plugins.format")
-require("fhawk.plugins.picker")
-require("fhawk.plugins.ai")

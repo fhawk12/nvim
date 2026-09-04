@@ -1,14 +1,30 @@
 require("nvim-web-devicons").setup({})
-require("fzf-lua").setup({ fzf_colors = true })
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == "fff" and (kind == "install" or kind == "update") then
+			if not ev.data.active then
+				vim.cmd.packadd("fff")
+			end
+			require("fff.download").download_or_build_binary()
+		end
+	end,
+})
 
-local fzf = require("fzf-lua")
-vim.keymap.set("n", "<leader><leader>", fzf.files)
-vim.keymap.set("n", "<leader>ff", fzf.files)
+require("fff").setup({
+	lazy_sync = true,
+	debug = { enabled = false },
+	git = { status_text_color = true },
+})
+
+vim.keymap.set("n", "<leader>ff", function()
+	require("fff").find_files()
+end, { desc = "Find files" })
+
+vim.keymap.set("n", "<leader>/", function()
+	require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+end, { desc = "Live fuzzy grep words" })
+
 vim.keymap.set("n", "<leader>fc", function()
-	require("fzf-lua").files({ cwd = "~/.config/nvim" })
-end)
-vim.keymap.set("n", "<leader>sh", fzf.help_tags)
-vim.keymap.set("n", "<leader>sk", fzf.keymaps)
-vim.keymap.set("n", "<leader>sd", fzf.lsp_workspace_diagnostics)
-vim.keymap.set("n", "<leader>/", fzf.grep)
-vim.keymap.set("n", "<leader>,", fzf.buffers)
+	require("fff").find_files_in_dir("~/.config/nvim")
+end, { desc = "Find files in specified path" })

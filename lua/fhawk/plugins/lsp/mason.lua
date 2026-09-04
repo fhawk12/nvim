@@ -13,7 +13,7 @@ mason.setup({
 
 mason_lspconfig.setup({
 	automatic_enable = {
-		exclude = { "rust_analyzer" },
+		exclude = { "rust_analyzer", "harper_ls" },
 	},
 	ensure_installed = {
 		"lua_ls",
@@ -22,7 +22,7 @@ mason_lspconfig.setup({
 		"html",
 		"cssls",
 		"tailwindcss",
-		"emmet_language_server",
+		"marksman",
 		"svelte",
 		"stylua",
 		"jsonls",

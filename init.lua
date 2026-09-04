@@ -13,4 +13,4 @@ require("fhawk.core.autocmd")
 require("fhawk.core.keymap")
 
 require("fhawk.pack")
-require("fhawk.current-theme")
+require("fhawk.theme")
