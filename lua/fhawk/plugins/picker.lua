@@ -25,6 +25,11 @@ vim.keymap.set("n", "<leader>/", function()
 	require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
 end, { desc = "Live fuzzy grep words" })
 
-vim.keymap.set("n", "<leader>fc", function()
+vim.keymap.set("n", "<leader>fP", function()
 	require("fff").find_files_in_dir("~/.config/nvim")
 end, { desc = "Find files in specified path" })
+
+vim.keymap.set("n", "<leader>fn", function()
+	require("fff").find_files_in_dir("~/org-notes/")
+end, { desc = "Find notes" })
+

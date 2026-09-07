@@ -7,7 +7,11 @@ require("solarized").setup({
 	end,
 })
 require("rose-pine").setup({})
-require("nord").setup({})
+require("nord").setup({
+	on_highlights = function(highlights, colors)
+		highlights.CursorLine = { bg = nil }
+	end,
+})
 
 -- vim.cmd.colorscheme("solarized")
 -- vim.cmd.colorscheme("rose-pine-moon")

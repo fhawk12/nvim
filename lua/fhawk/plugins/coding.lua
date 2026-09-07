@@ -2,8 +2,8 @@ require("mini.surround").setup({})
 require("nvim-autopairs").setup({})
 require("nvim-ts-autotag").setup({
 	opts = {
-		enable_close = true, -- Auto close tags
-		enable_rename = true, -- Auto rename pairs of tags
+		enable_close = true,    -- Auto close tags
+		enable_rename = true,   -- Auto rename pairs of tags
 		enable_close_on_slash = true, -- Auto close on trailing </
 	},
 })
@@ -18,8 +18,16 @@ cmp.setup({
 		menu = { auto_show_delay_ms = 500 },
 	},
 	sources = {
+		per_filetype = {
+			org = { "orgmode" },
+		},
 		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 		providers = {
+			orgmode = {
+				name = "Orgmode",
+				module = "orgmode.org.autocompletion.blink",
+				fallbacks = { "buffer" },
+			},
 			lazydev = {
 				name = "LazyDev",
 				module = "lazydev.integrations.blink",

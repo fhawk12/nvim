@@ -8,7 +8,7 @@ require("aerial").setup({
 		vim.keymap.set("n", "q", "<cmd>AerialClose<CR>", { buffer = bufnr })
 	end,
 })
-vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<leader>so", "<cmd>AerialToggle!<CR>", { desc = "Open symbols outline" })
 
 require("quicker").setup({
 	keys = {
@@ -34,3 +34,8 @@ vim.keymap.set({ "n", "t" }, "<leader>tm", function()
 	require("toggleterm").toggle()
 end, { desc = "Toggle terminal" })
 vim.keymap.set({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<cr>", { desc = "Toggle Select" })
+
+vim.o.cursorline = true
+require("modicator").setup()
+
+require("which-key").setup({})

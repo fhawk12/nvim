@@ -35,10 +35,17 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim", -- status bar
 	"https://github.com/nvim-tree/nvim-web-devicons", -- dependency (lualine)
 	"https://github.com/akinsho/toggleterm.nvim", -- terminal
+	"https://github.com/mawkler/modicator.nvim", -- replace with cursorline
+	"https://github.com/folke/which-key.nvim.git",
 
 	-- rust
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/Saecki/crates.nvim",
+
+	-- org
+	"https://github.com/nvim-orgmode/orgmode",
+	"https://github.com/chipsenkbeil/org-roam.nvim",
+	"https://github.com/nvim-orgmode/org-bullets.nvim",
 
 	-- theme
 	"https://github.com/maxmx03/solarized.nvim", -- solarized theme
@@ -53,6 +60,7 @@ require("fhawk.plugins.picker")
 require("fhawk.plugins.editor")
 require("fhawk.plugins.coding")
 require("fhawk.plugins.rust")
+require("fhawk.plugins.org")
 
 require("fhawk.plugins.treesitter")
 require("fhawk.plugins.git")

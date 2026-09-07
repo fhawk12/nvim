@@ -9,10 +9,10 @@ vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart Neovim (
 
 -- quickfix and locallist
 vim.keymap.set("n", "<leader>dq", function()
-	vim.diagnostic.setqflist()
+	vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Show diagnostic in quickfix" })
 vim.keymap.set("n", "<leader>dQ", function()
-	vim.diagnostic.setloclist()
+	vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Show diagnostic in locallist" })
 
 -- Built-in undotree
@@ -57,7 +57,6 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close Buffer" })
 vim.keymap.set("n", "k", "n", { desc = "Go to next pattern" })
 vim.keymap.set("n", "K", "N", { desc = "Go to previous pattern" })
 vim.keymap.set("n", "l", "u", { desc = "undo" })
-vim.keymap.set("n", "L", "<C-r>", { desc = "Re-undo" })
 vim.keymap.set("n", "<C-S-o>", "<C-i>", { desc = "Go back from <C-o>" })
 vim.keymap.set({ "n", "x" }, "u", "i", { desc = "Enter Insert Mode" })
 vim.keymap.set({ "n", "x" }, "U", "I", { desc = "Enter Insert Mode" })

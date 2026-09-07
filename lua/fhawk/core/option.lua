@@ -26,7 +26,7 @@ vim.o.list = true -- Show <tab> and trailing spaces.
 vim.o.confirm = true -- raise a dialog asking if you wish to save the current file(s)
 vim.o.undofile = true -- auto save undo history
 vim.o.number = true -- Show line numbers in a column.
-vim.o.relativenumber = true -- Show line numbers relative to where the cursor is.
+vim.o.relativenumber = false -- Show line numbers relative to where the cursor is.
 vim.o.signcolumn = "yes" -- always show the signcolumn
 vim.o.laststatus = 3 -- a global statusline at the bottom
 vim.opt.clipboard:append("unnamedplus") -- use same clipboard with os
