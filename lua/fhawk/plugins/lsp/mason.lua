@@ -27,5 +27,6 @@ mason_lspconfig.setup({
 		"stylua",
 		"jsonls",
 		"taplo",
+		"zk",
 	},
 })

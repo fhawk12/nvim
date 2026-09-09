@@ -18,16 +18,8 @@ cmp.setup({
 		menu = { auto_show_delay_ms = 500 },
 	},
 	sources = {
-		per_filetype = {
-			org = { "orgmode" },
-		},
 		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 		providers = {
-			orgmode = {
-				name = "Orgmode",
-				module = "orgmode.org.autocompletion.blink",
-				fallbacks = { "buffer" },
-			},
 			lazydev = {
 				name = "LazyDev",
 				module = "lazydev.integrations.blink",

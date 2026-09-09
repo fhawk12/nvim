@@ -25,4 +25,4 @@ require("fidget").setup({})
 vim.lsp.config("harper_ls", {
 	filetypes = { "markdown" },
 })
-vim.lsp.enable("harper_ls")
+ -- vim.lsp.enable("harper_ls")

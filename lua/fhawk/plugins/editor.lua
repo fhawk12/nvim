@@ -1,5 +1,7 @@
 require("colorizer").setup()
+require("which-key").setup({})
 require("lualine").setup({})
+require("modicator").setup({})
 
 require("aerial").setup({
 	on_attach = function(bufnr)
@@ -36,6 +38,27 @@ end, { desc = "Toggle terminal" })
 vim.keymap.set({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<cr>", { desc = "Toggle Select" })
 
 vim.o.cursorline = true
-require("modicator").setup()
+require("im_select").setup({
+	default_im_select = "com.apple.keylayout.Colemak",
+	default_command = "im-select",
+})
 
-require("which-key").setup({})
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		go = { "goimports", "gofmt" },
+		rust = { "rustfmt", lsp_format = "fallback" },
+		markdown = { "prettier" },
+	},
+	default_format_opts = {
+		lsp_format = "fallback",
+	},
+	-- format_on_save = {
+	-- 	lsp_format = "fallback",
+	-- 	timeout_ms = 500,
+	-- },
+})
+
+vim.keymap.set("n", "<leader>cf", function()
+	require("conform").format({ async = true })
+end, { desc = "format buffer with conform" })

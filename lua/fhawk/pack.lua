@@ -22,6 +22,10 @@ vim.pack.add({
 
 	-- picker
 	"https://github.com/dmtrKovalenko/fff",
+	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 
 	-- git
 	"https://github.com/lewis6991/gitsigns.nvim",
@@ -36,16 +40,17 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons", -- dependency (lualine)
 	"https://github.com/akinsho/toggleterm.nvim", -- terminal
 	"https://github.com/mawkler/modicator.nvim", -- replace with cursorline
+	"https://github.com/keaising/im-select.nvim", -- auto switch input method
+	"https://github.com/stevearc/conform.nvim", -- format
 	"https://github.com/folke/which-key.nvim.git",
 
 	-- rust
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/Saecki/crates.nvim",
 
-	-- org
-	"https://github.com/nvim-orgmode/orgmode",
-	"https://github.com/chipsenkbeil/org-roam.nvim",
-	"https://github.com/nvim-orgmode/org-bullets.nvim",
+	-- take notes
+	"https://github.com/zk-org/zk-nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 
 	-- theme
 	"https://github.com/maxmx03/solarized.nvim", -- solarized theme
@@ -56,11 +61,12 @@ vim.pack.add({
 require("fhawk.plugins.lsp.mason")
 require("fhawk.plugins.lsp.lspconfig")
 
-require("fhawk.plugins.picker")
-require("fhawk.plugins.editor")
-require("fhawk.plugins.coding")
-require("fhawk.plugins.rust")
-require("fhawk.plugins.org")
-
 require("fhawk.plugins.treesitter")
 require("fhawk.plugins.git")
+
+require("fhawk.plugins.coding")
+require("fhawk.plugins.rust")
+
+require("fhawk.plugins.picker")
+require("fhawk.plugins.editor")
+require("fhawk.plugins.take-note")
