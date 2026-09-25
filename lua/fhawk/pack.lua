@@ -8,15 +8,15 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
-	"https://github.com/folke/lazydev.nvim", -- lsp for neovim
+	"https://github.com/folke/lazydev.nvim", -- luals setup for neovim
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- lsp diagnostic ui
-	"https://github.com/j-hui/fidget.nvim", -- lsp progress message
+	"https://github.com/j-hui/fidget.nvim", -- lsp progress ui
 
 	-- coding
-	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/windwp/nvim-ts-autotag",
-	"https://github.com/nvim-mini/mini.surround",
+	"https://github.com/windwp/nvim-autopairs", -- auto pairs
+	"https://github.com/windwp/nvim-ts-autotag", -- auto tag pairs
+	"https://github.com/nvim-mini/mini.surround", -- surround
 	"https://github.com/Saghen/blink.cmp", -- completion
 	"https://github.com/Saghen/blink.lib", -- dependency (blink)
 
@@ -39,9 +39,10 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim", -- status bar
 	"https://github.com/nvim-tree/nvim-web-devicons", -- dependency (lualine)
 	"https://github.com/akinsho/toggleterm.nvim", -- terminal
-	"https://github.com/mawkler/modicator.nvim", -- replace with cursorline
+	"https://github.com/mawkler/modicator.nvim", -- line number ui
 	"https://github.com/keaising/im-select.nvim", -- auto switch input method
 	"https://github.com/stevearc/conform.nvim", -- format
+	"https://github.com/folke/trouble.nvim", -- better diagnostic
 	"https://github.com/folke/which-key.nvim.git",
 
 	-- rust
@@ -55,7 +56,7 @@ vim.pack.add({
 	-- theme
 	"https://github.com/maxmx03/solarized.nvim", -- solarized theme
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" }, -- rose-pine theme
-	"https://github.com/gbprod/nord.nvim.git",
+	"https://github.com/gbprod/nord.nvim.git", -- nord theme
 })
 
 require("fhawk.plugins.lsp.mason")

@@ -1,4 +1,5 @@
 -- Native LSP capabilities
+require("fidget").setup({})
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 
@@ -19,10 +20,3 @@ require("tiny-inline-diagnostic").setup({
 	},
 })
 vim.diagnostic.config({ virtual_text = { current_line = true } })
-
-require("fidget").setup({})
-
-vim.lsp.config("harper_ls", {
-	filetypes = { "markdown" },
-})
- -- vim.lsp.enable("harper_ls")

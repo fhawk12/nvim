@@ -2,8 +2,8 @@ require("mini.surround").setup({})
 require("nvim-autopairs").setup({})
 require("nvim-ts-autotag").setup({
 	opts = {
-		enable_close = true,    -- Auto close tags
-		enable_rename = true,   -- Auto rename pairs of tags
+		enable_close = true, -- Auto close tags
+		enable_rename = true, -- Auto rename pairs of tags
 		enable_close_on_slash = true, -- Auto close on trailing </
 	},
 })
@@ -30,7 +30,7 @@ cmp.setup({
 	cmdline = {
 		enabled = true,
 	},
-	signature = { enabled = true },
+	signature = { enabled = false },
 	fuzzy = {
 		implementation = "rust",
 	},

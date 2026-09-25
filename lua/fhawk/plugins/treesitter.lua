@@ -15,7 +15,6 @@ local ts_list = {
 	"latex",
 	"markdown",
 	"markdown_inline",
-	"comment",
 }
 treesitter.install(ts_list)
 treesitter.setup()

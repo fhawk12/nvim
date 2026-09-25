@@ -10,6 +10,7 @@ require("rose-pine").setup({})
 require("nord").setup({
 	on_highlights = function(highlights, colors)
 		highlights.CursorLine = { bg = nil }
+		highlights.QuickFixLine = { bg = "#434c5e" }
 	end,
 })
 

@@ -10,7 +10,7 @@ require("aerial").setup({
 		vim.keymap.set("n", "q", "<cmd>AerialClose<CR>", { buffer = bufnr })
 	end,
 })
-vim.keymap.set("n", "<leader>so", "<cmd>AerialToggle!<CR>", { desc = "Open symbols outline" })
+vim.keymap.set("n", "<leader>co", "<cmd>AerialToggle!<CR>", { desc = "Open symbols outline" })
 
 require("quicker").setup({
 	keys = {
@@ -48,6 +48,11 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "goimports", "gofmt" },
 		rust = { "rustfmt", lsp_format = "fallback" },
+		html = { "prettier" },
+		css = { "prettier" },
+		typescript = { "prettier" },
+		javascript = { "prettier" },
+		svelte = { "prettier" },
 		markdown = { "prettier" },
 	},
 	default_format_opts = {
@@ -62,3 +67,6 @@ require("conform").setup({
 vim.keymap.set("n", "<leader>cf", function()
 	require("conform").format({ async = true })
 end, { desc = "format buffer with conform" })
+
+require("trouble").setup({})
+vim.keymap.set("n", "<leader>x", "<cmd>Trouble diagnostics<cr>", { desc = "Open trouble" })

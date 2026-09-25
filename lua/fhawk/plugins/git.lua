@@ -18,7 +18,7 @@ require("gitsigns").setup({
 		end
 
 		-- Navigation
-		map("n", "]h", function()
+		map("n", "]c", function()
 			if vim.wo.diff then
 				vim.cmd.normal({ "]c", bang = true })
 			else
@@ -26,7 +26,7 @@ require("gitsigns").setup({
 			end
 		end, { desc = "Go to next hunk" })
 
-		map("n", "[h", function()
+		map("n", "[c", function()
 			if vim.wo.diff then
 				vim.cmd.normal({ "[c", bang = true })
 			else
@@ -63,7 +63,7 @@ require("gitsigns").setup({
 
 		map("n", "<leader>hQ", function()
 			gitsigns.setqflist("all")
-		end)
+		end, { desc = "Show all status in quickfix" })
 		map("n", "<leader>hq", gitsigns.setqflist, { desc = "Show status in quickfix" })
 
 		-- Toggles
