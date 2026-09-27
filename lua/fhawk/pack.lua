@@ -50,7 +50,7 @@ vim.pack.add({
 	"https://github.com/Saecki/crates.nvim",
 
 	-- take notes
-	"https://github.com/zk-org/zk-nvim",
+	"https://github.com/obsidian-nvim/obsidian.nvim",
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 
 	-- theme

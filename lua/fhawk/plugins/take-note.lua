@@ -1,71 +1,41 @@
 require("render-markdown").setup({})
-
-vim.env.ZK_NOTEBOOK_DIR = vim.fn.expand("~/notebook")
-require("zk").setup({
-	picker = "telescope",
+require("obsidian").setup({
+	picker = { name = "telescope.nvim" },
+	legacy_commands = false, -- this will be removed in 4.0.0
+	workspaces = {
+		{
+			name = "zettelkasten",
+			path = "~/vaults/zettelkasten",
+		},
+	},
+	note_id_func = function(title)
+		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+		-- In this case a note with the title 'My new note' will be given an ID that looks
+		-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+		local suffix = ""
+		if title ~= nil then
+			-- If title is given, transform it into valid file name.
+			suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+		else
+			-- If title is nil, just add 4 random uppercase letters to the suffix.
+			for _ = 1, 4 do
+				suffix = suffix .. string.char(math.random(65, 90))
+			end
+		end
+		return tostring(os.time()) .. "-" .. suffix
+	end,
 })
 
-local zk = require("zk")
-vim.keymap.set("n", "<leader>nn", function()
-	local opts = { prompt = "Title: " }
-	vim.ui.input(opts, function(input)
-		if input == nil then
+vim.keymap.set("n", "<leader>nf", "<cmd>Obsidian quick_switch<cr>", { desc = "Open notes" })
+vim.keymap.set("n", "<leader>n/", "<cmd>Obsidian search<cr>", { desc = "Search in notes" })
+vim.keymap.set("n", "<leader>nt", "<cmd>Obsidian tags<cr>", { desc = "Open note tags" })
+vim.keymap.set("n", "<space>nn", function()
+	vim.print("Enter a title: ")
+	vim.ui.input({ prompt = "Enter a title: " }, function(title)
+		if title == nil or title == "" then
 			return
 		end
-		zk.new({ title = input })
+		local command = "Obsidian new " .. title
+		vim.cmd(command)
 	end)
-end, { desc = "Capture note" })
-vim.keymap.set("n", "<leader>nf", "<cmd>ZkNotes { sort = { 'modified' } }<cr>", { desc = "Open notes" })
-vim.keymap.set("n", "<leader>nt", "<cmd>ZkTags<cr>", { desc = "Search note tags" })
-vim.keymap.set("n", "<leader>ni", "<cmd>ZkInsertLink<cr>", { desc = "Insert Link" })
-vim.keymap.set("v", "<leader>n/", ":'<,'>ZkMatch<cr>", { desc = "Search for the notes matching  selection" })
-
-local function capture_to(path)
-	vim.cmd("belowright split " .. vim.fn.fnameescape(path))
-	vim.cmd("resize 15")
-
-	local timestamp = tostring(os.date("- %Y-%m-%d %H:%M "))
-	vim.api.nvim_buf_set_lines(0, -1, -1, false, { timestamp })
-	vim.cmd("normal! G$")
-	vim.cmd("startinsert!")
-
-	vim.opt_local.bufhidden = "wipe"
-
-	local bufnr = vim.api.nvim_get_current_buf()
-	local opts = { buffer = bufnr, silent = true }
-	local function finish_capture()
-		vim.cmd("stopinsert")
-		vim.cmd("write")
-		vim.cmd("close")
-	end
-
-	vim.keymap.set({ "n", "i" }, "<C-c><C-c>", finish_capture, opts)
-end
-
-vim.keymap.set("n", "<leader>nc", function()
-	local inbox = vim.fn.expand("~/notebook/inbox.md")
-	local todo = vim.fn.expand("~/notebook/todo.md")
-
-	vim.cmd("redraw")
-	vim.api.nvim_echo({
-		{ "Capture to: ", "None" },
-		{ "[d]", "WarningMsg" },
-		{ "inbox  ", "None" },
-		{ "[t]", "WarningMsg" },
-		{ "odo", "None" },
-	}, false, {})
-
-	local ok, char = pcall(vim.fn.getcharstr)
-	vim.api.nvim_echo({ { "" } }, false, {})
-	vim.cmd("redraw")
-
-	if not ok then
-		return -- Esc / Ctrl-C 取消
-	end
-
-	if char == "d" then
-		capture_to(inbox)
-	elseif char == "t" then
-		capture_to(todo)
-	end
-end, { desc = "Capture note" })
+end, { desc = "Obsidian new" })
