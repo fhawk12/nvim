@@ -31,6 +31,6 @@ vim.o.signcolumn = "yes" -- always show the signcolumn
 vim.o.laststatus = 3 -- a global statusline at the bottom
 vim.opt.clipboard:append("unnamedplus") -- use same clipboard with os
 
-vim.o.winborder = "rounded"
+-- vim.o.winborder = "rounded"
 vim.o.swapfile = false
 vim.o.foldlevel = 999

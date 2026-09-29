@@ -57,6 +57,7 @@ vim.pack.add({
 	"https://github.com/maxmx03/solarized.nvim", -- solarized theme
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" }, -- rose-pine theme
 	"https://github.com/gbprod/nord.nvim.git", -- nord theme
+	"https://github.com/sainnhe/gruvbox-material",
 })
 
 require("fhawk.plugins.lsp.mason")

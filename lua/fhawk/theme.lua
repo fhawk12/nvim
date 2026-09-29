@@ -16,4 +16,6 @@ require("nord").setup({
 
 -- vim.cmd.colorscheme("solarized")
 -- vim.cmd.colorscheme("rose-pine-moon")
-vim.cmd.colorscheme("nord")
+-- vim.cmd.colorscheme("nord")
+vim.cmd.colorscheme("gruvbox-material")
+vim.api.nvim_set_hl(0, "CursorLine", { bg = nil })

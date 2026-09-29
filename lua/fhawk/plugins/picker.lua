@@ -16,6 +16,11 @@ require("fff").setup({
 	prompt = "🪿 ",
 	lazy_sync = true,
 	debug = { enabled = false },
+	hl = {
+		cursor = "TelescopeSelection",
+		selected = "TelescopeSelection",
+		selected_active = "TelescopeSelection",
+	},
 })
 
 vim.keymap.set("n", "<leader>ff", function()

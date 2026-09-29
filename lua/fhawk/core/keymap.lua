@@ -51,6 +51,13 @@ vim.keymap.set("n", "<C-i>", "<C-w>l", { desc = "Go to Right Window", remap = tr
 
 vim.keymap.set("n", "E", vim.lsp.buf.hover, { desc = "LSP Hover" })
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format Document" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, { desc = "Code implementation" })
+vim.keymap.set("n", "<leader>cI", vim.lsp.buf.incoming_calls, { desc = "Code incoming_calls" })
+vim.keymap.set("n", "<leader>co", vim.lsp.buf.outgoing_calls, { desc = "Code outgoing_calls" })
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set("n", "<leader>cR", vim.lsp.buf.references, { desc = "Code references" })
+
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open Explore" })
 vim.keymap.set({ "n", "x" }, "f", "e", { desc = "Go to end of word" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close Buffer" })
