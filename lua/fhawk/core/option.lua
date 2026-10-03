@@ -20,7 +20,8 @@ vim.o.wrap = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.cursorline = false -- Highlight the line where the cursor is on.
+vim.o.cursorline = true -- Highlight the line where the cursor is on.
+vim.o.cursorlineopt = "number"
 vim.o.scrolloff = 10 -- Keep this many screen lines above/below the cursor.
 vim.o.list = true -- Show <tab> and trailing spaces.
 vim.o.confirm = true -- raise a dialog asking if you wish to save the current file(s)

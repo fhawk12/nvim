@@ -8,8 +8,7 @@ require("solarized").setup({
 })
 require("rose-pine").setup({})
 require("nord").setup({
-	on_highlights = function(highlights, colors)
-		highlights.CursorLine = { bg = nil }
+	on_highlights = function(highlights)
 		highlights.QuickFixLine = { bg = "#434c5e" }
 	end,
 })
@@ -18,4 +17,3 @@ require("nord").setup({
 -- vim.cmd.colorscheme("rose-pine-moon")
 -- vim.cmd.colorscheme("nord")
 vim.cmd.colorscheme("gruvbox-material")
-vim.api.nvim_set_hl(0, "CursorLine", { bg = nil })
