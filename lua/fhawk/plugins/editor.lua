@@ -2,6 +2,11 @@ require("colorizer").setup()
 require("which-key").setup({})
 require("lualine").setup({})
 require("modicator").setup({})
+require("smartcolumn").setup()
+require("flash").setup({ modes = { char = { enabled = false } } })
+vim.keymap.set({ "n", "x", "o" }, "S", function()
+	require("flash").jump()
+end, { desc = "Flash" })
 
 require("aerial").setup({
 	on_attach = function(bufnr)
@@ -50,18 +55,14 @@ require("conform").setup({
 		rust = { "rustfmt", lsp_format = "fallback" },
 		html = { "prettier" },
 		css = { "prettier" },
-		typescript = { "prettier" },
-		javascript = { "prettier" },
-		svelte = { "prettier" },
+		-- typescript = { lsp_format = "fallback" },
+		-- javascript = { lsp_format = "fallback" },
+		-- svelte = { lsp_format = "fallback" },
 		markdown = { "prettier" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
 	},
-	-- format_on_save = {
-	-- 	lsp_format = "fallback",
-	-- 	timeout_ms = 500,
-	-- },
 })
 
 vim.keymap.set("n", "<leader>cf", function()

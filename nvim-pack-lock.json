@@ -32,6 +32,10 @@
       "rev": "6f793b2bcd2d35e201c09520f698bb763220908a",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
+    "flash.nvim": {
+      "rev": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a",
+      "src": "https://github.com/folke/flash.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -123,6 +127,10 @@
     "rustaceanvim": {
       "rev": "d16c6cf9adb062c415c2bb9780cd5064fa6609ca",
       "src": "https://github.com/mrcjkb/rustaceanvim"
+    },
+    "smartcolumn.nvim": {
+      "rev": "3a760dc239de71264072f829a184aafcf7d4d3e7",
+      "src": "https://github.com/m4xshen/smartcolumn.nvim"
     },
     "solarized.nvim": {
       "rev": "a8085e29883ddcfb39bd46197eb32ef00df05368",

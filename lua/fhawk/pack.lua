@@ -40,6 +40,8 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons", -- dependency (lualine)
 	"https://github.com/akinsho/toggleterm.nvim", -- terminal
 	"https://github.com/mawkler/modicator.nvim", -- line number ui
+	"https://github.com/m4xshen/smartcolumn.nvim", -- colorcolumn
+	"https://github.com/folke/flash.nvim", -- search or jump
 	"https://github.com/keaising/im-select.nvim", -- auto switch input method
 	"https://github.com/stevearc/conform.nvim", -- format
 	"https://github.com/folke/trouble.nvim", -- better diagnostic
